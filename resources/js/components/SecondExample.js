@@ -3,7 +3,11 @@ import { PureComponent } from "react";
 
 class Name extends PureComponent {
     render() {
-        return <p>Hello {this.props.name}</p>;
+        return (
+            <p>
+                <button class="success button">Hello {this.props.name}</button>
+            </p>
+        );
     }
 }
 export default Name;
