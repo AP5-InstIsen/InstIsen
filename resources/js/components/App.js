@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from 'react';
 import ReactDOM from "react-dom";
 import RegisterForm from "./RegisterForm";
-
+import MainPage from  "./Mainpage";
 function App() {
     const [token,setToken] = useState();
+    if(!token)
+    {
+        return (
+            <RegisterForm setToken={setToken} ></RegisterForm>
+        )
+    }
+
+
     return (
-        if(!token)
-<RegisterForm setToken={setToken} ></RegisterForm>
+        <MainPage></MainPage>
     );
 }
 

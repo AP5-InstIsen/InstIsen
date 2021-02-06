@@ -1,43 +1,39 @@
-import React from "react";
+import React, { useState } from 'react';
 import axios from 'axios';
 
-class RegisterForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            email: '',
-            password: '',
-            password_confirmation: '',
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
 
-    handleChange(event) {
-        this.setState({[event.target.name]: event.target.value});
+async function registerUser(userInfo)
+    {
+        return axios.post('/api/register', userInfo)
+            .then(res =>{
+                return res.data.accessToken;
+            })
     }
 
 
-    handleSubmit(event) {
 
-        axios.post('/api/register', {
-            'name':this.state.name,
-            'email': this.state.email,
-            'password':this.state.password,
-            'password_confirmation':this.state.password_confirmation
-        })
-        .then(res => {
-            console.log(res.data.accessToken);
-        }).catch(err => {
-           alert(err)
-        })
-        event.preventDefault();
-    }
 
-    render() {
+export default function RegisterForm({setToken})
+    {
+        const [name, setName] = useState();
+        const [email, setEmail] = useState();
+        const [password, setPassword] = useState();
+        const [password_confirmation, setpassword_confirmation] = useState();
+
+        const handleSubmit = async e => {
+            e.preventDefault();
+          const token =  registerUser({
+                name,
+                email,
+                password,
+                password_confirmation,
+            });
+           setToken(token)
+        }
+
+
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="grid-container">
                     <div className="grid-x grid-padding-x">
                         <div className="medium-6 cell">
@@ -46,8 +42,7 @@ class RegisterForm extends React.Component {
                                 type="text"
                                 name="name"
                                 placeholder="Georges"
-                                value={this.state.name}
-                                onChange={this.handleChange.bind(this)}
+                                onChange={e => setName(e.target.value)}
                             />
                             </label>
                         </div>
@@ -57,8 +52,7 @@ class RegisterForm extends React.Component {
                                 type="text"
                                 name="email"
                                 placeholder="john@doe.com"
-                                value={this.state.email}
-                                onChange={this.handleChange.bind(this)}
+                                onChange={e => setEmail(e.target.value)}
                             />
                             </label>
                         </div>
@@ -67,8 +61,7 @@ class RegisterForm extends React.Component {
                             <input
                                 type="password"
                                 name="password"
-                                value={this.state.password}
-                                onChange={this.handleChange.bind(this)}
+                                onChange={e => setPassword(e.target.value)}
                             />
                                 </label>
                             </div>
@@ -77,8 +70,7 @@ class RegisterForm extends React.Component {
                             <input
                                 type="password"
                                 name="password_confirmation"
-                                value={this.state.password_confirmation}
-                                onChange={this.handleChange.bind(this)}
+                                onChange={ e => setpassword_confirmation(e.target.value)}
                             />
                                     </label>
                                     <input type="submit" value="Envoyer"/>
@@ -88,8 +80,7 @@ class RegisterForm extends React.Component {
             </form>
     );
     }
-    }
 
 
-    export default RegisterForm;
+
 
