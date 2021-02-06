@@ -15,6 +15,11 @@ class Image extends Model
      */
     protected $fillable = [
         'path',
+        'idUser',
+        'idBroadcastList',
+        'legend',
+        'note',
+        'exifs'
     ];
 
     /**
