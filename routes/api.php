@@ -23,3 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/upload', [ImageController::class, 'store']);
+Route::post('/get_image_by_id', [ImageController::class, 'getImageById']);
+Route::post('/get_image_by_path', [ImageController::class, 'getImageByPath']);
+Route::post('/get_image_info_by_id', [ImageController::class, 'getImageInfoById']);
+Route::post('/get_images_list_by_id_user', [ImageController::class, 'getImagesInfoByUserId']);
