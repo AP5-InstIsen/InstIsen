@@ -41,4 +41,24 @@ class BroadcastListController extends Controller
             return response(['message' => 'you are not logged in']);
         }
     }
+
+    public function getBroadcastListByUserId(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            $broadcast_list = BroadcastList::where('idUser', $request->id_user)->get();
+            return response(['broadcast_list' => $broadcast_list]);
+        } else {
+            return response(['message' => 'you are not logged in']);
+        }
+    }
+
+    public function getBroadcastListById(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            $broadcast_list = BroadcastList::find($request->id_user);
+            return response(['broadcast_list' => $broadcast_list]);
+        } else {
+            return response(['message' => 'you are not logged in']);
+        }
+    }
 }
