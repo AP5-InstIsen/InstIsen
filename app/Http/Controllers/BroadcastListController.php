@@ -55,7 +55,7 @@ class BroadcastListController extends Controller
     public function getBroadcastListById(Request $request)
     {
         if (Auth::guard('api')->check()) {
-            $broadcast_list = BroadcastList::find($request->id_user);
+            $broadcast_list = BroadcastList::find($request->id);
             return response(['broadcast_list' => $broadcast_list]);
         } else {
             return response(['message' => 'you are not logged in']);
