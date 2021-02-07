@@ -1,26 +1,19 @@
-import React from "react";
+import React, { useState } from 'react';
 import ReactDOM from "react-dom";
-import Header from "./Header";
-import Name from "./SecondExample";
-
+import RegisterForm from "./RegisterForm";
+import MainPage from  "./Mainpage";
 function App() {
-    return (
-        <div className="container">
-            <Header></Header>
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
+    const [token,setToken] = useState();
+    if(!token)
+    {
+        return (
+            <RegisterForm setToken={setToken} ></RegisterForm>
+        )
+    }
 
-                        <div className="card-body">
-                            I'm an example component!
-                        </div>
-                    </div>
-                    <Name name="John"></Name>
-                    <Name name="Doe"></Name>
-                </div>
-            </div>
-        </div>
+
+    return (
+        <MainPage></MainPage>
     );
 }
 
