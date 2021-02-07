@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="container">
             <Header></Header>
-            <div className="row justify-content-center">
+            {/*  <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
                         <div className="card-header">Example Component</div>
@@ -19,7 +19,7 @@ function App() {
                     <Name name="John"></Name>
                     <Name name="Doe"></Name>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
