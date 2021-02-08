@@ -23,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/upload', [ImageController::class, 'store']);
 Route::post('/create_broadcast_list', [BroadcastListController::class, 'store']);
 Route::post('/get_broadcast_list_by_id', [BroadcastListController::class, 'getBroadcastListById']);
