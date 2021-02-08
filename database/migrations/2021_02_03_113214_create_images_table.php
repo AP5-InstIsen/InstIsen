@@ -16,11 +16,11 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('path');
-            $table->integer('idUser');
-            $table->integer('idBroadcastList');
-            $table->string('legend');
-            $table->float('note');
-            $table->boolean('exifs');
+            $table->integer('idUser')->nullable();
+            $table->integer('idBroadcastList')->nullable();
+            $table->string('legend')->nullable();
+            $table->float('note')->nullable();
+            $table->boolean('exifs')->nullable();
             $table->timestamps();
         });
     }
