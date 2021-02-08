@@ -37,9 +37,44 @@ class ImageController extends Controller
         return response(['message' => 'wrong file']);
     }
 
-    /* public function get(Request $request){
-        return response()->file($pathToFile);
-    } */
+    public function getImageInfoById(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            $image = Image::find($request->id);
+            return response(['image' => $image]);
+        } else {
+            return response(['message' => 'you are not logged in']);
+        }
+    }
+
+    public function getImagesInfoByUserId(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            $images_list = Image::where('idUser', $request->id_user)->get();
+            return response(['images_list' => $images_list]);
+        } else {
+            return response(['message' => 'you are not logged in']);
+        }
+    }
+
+    public function getImageById(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            $image = Image::find($request->id);
+            return response()->file(storage_path('app/').$image->path);
+        } else {
+            return response(['message' => 'you are not logged in']);
+        }
+    }
+
+    public function getImageByPath(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            return response()->file(storage_path('app/').$request->path);
+        } else {
+            return response(['message' => 'you are not logged in']);
+        }
+    }
 
     /*public function viewUploads()
     {
