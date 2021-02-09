@@ -17,7 +17,7 @@ class CreateUserNotesTable extends Migration
             $table->id();
             $table->integer('idUser');
             $table->integer('idImage');
-            $table->string('note');
+            $table->double('note', 8, 2);
             $table->timestamps();
         });
     }

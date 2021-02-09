@@ -19,7 +19,7 @@ class CreateImagesTable extends Migration
             $table->integer('idUser')->nullable();
             $table->integer('idBroadcastList')->nullable();
             $table->string('legend')->nullable();
-            $table->float('note')->nullable();
+            $table->double('note', 8, 2)->nullable();
             $table->boolean('exifs')->nullable();
             $table->timestamps();
         });
