@@ -11,25 +11,21 @@ class UserNoteController extends Controller
 {
     public function store(Request $request)
     {
-        if (Auth::guard('api')->check()) {
-            $user = Auth::guard('api')->user();
-            $request->validate([
+        $user = Auth::guard('api')->user();
+        $request->validate([
                     'idImage' => 'required|integer',
                     'note' => 'required|numeric',
                 ]);
-            $userNote = UserNote::create([
+        $userNote = UserNote::create([
                         'idUser' => $user->id,
                         'idImage' => $request->idImage,
                         'note' => $request->note
                     ]);
 
-            $image = Image::find($request->idImage);
-            $image->note = ($image->note == null) ? $request->note : ($image->note + $request->note)/2;
-            $image->save();
+        $image = Image::find($request->idImage);
+        $image->note = ($image->note == null) ? $request->note : ($image->note + $request->note)/2;
+        $image->save();
 
-            return response(['userNote' => $userNote,'message' => 'the note was updated successfully']);
-        } else {
-            return response(['message' => 'you are not logged in']);
-        }
+        return response(['userNote' => $userNote,'message' => 'the note was updated successfully']);
     }
 }

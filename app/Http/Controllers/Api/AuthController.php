@@ -45,11 +45,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        if (Auth::guard('api')->check()) {
-            Auth::guard('api')->user()->token()->revoke();
-            return response(['message'=> 'successfully logged out']);
-        } else {
-            return response(['message' => 'you are not logged in']);
-        }
+        Auth::guard('api')->user()->token()->revoke();
+        return response(['message'=> 'successfully logged out']);
     }
 }
