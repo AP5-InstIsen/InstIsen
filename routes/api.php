@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\BroadcastListController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UserNoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,4 @@ Route::post('/get_image_by_id', [ImageController::class, 'getImageById']);
 Route::post('/get_image_by_path', [ImageController::class, 'getImageByPath']);
 Route::post('/get_image_info_by_id', [ImageController::class, 'getImageInfoById']);
 Route::post('/get_images_list_by_id_user', [ImageController::class, 'getImagesInfoByUserId']);
+Route::post('/create_user_note', [UserNoteController::class, 'store']);
