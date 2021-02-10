@@ -36,7 +36,8 @@ Route::middleware('isAuthenticated')->group(function () {
     Route::post('/get_image_by_id', [ImageController::class, 'getImageById']);
     Route::post('/get_image_by_path', [ImageController::class, 'getImageByPath']);
     Route::post('/get_image_info_by_id', [ImageController::class, 'getImageInfoById']);
-    Route::post('/get_images_list_by_id_user', [ImageController::class, 'getImagesInfoByUserId']);
+    Route::post('/get_images_list', [ImageController::class, 'getImagesInfo']);
+    Route::post('/get_wall', [ImageController::class, 'getWall']);
     Route::post('/create_user_note', [UserNoteController::class, 'store']);
     Route::post('/create_user_comment', [UserCommentController::class, 'store']);
 });
