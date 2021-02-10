@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-async function LoginUser(userInfo)
-{
-    return axios.post('/api/login', userInfo)
+async function LoginUser(userInfo){
+    return await axios.post('/api/login', userInfo)
         .then(res =>{
             return res.data.accessToken;
         })
@@ -24,7 +23,9 @@ export default function LoginForm({setToken, setIsregister})
             email,
             password,
         });
-        setToken(token)
+        token.then(r => {
+            setToken(r)
+        })
     }
     const handleRegister= async e => {
         console.log("click")

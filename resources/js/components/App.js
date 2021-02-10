@@ -5,9 +5,11 @@ import MainPage from  "./Mainpage";
 import LoginForm from "./LoginForm"
 import UploadImageForm from "./UploadImageForm"
 
+
 function App() {
     const [token,setToken] = useState();
     const [isregister,setIsregister] = useState();
+
 
     if(!token && !isregister)
     {
@@ -21,6 +23,7 @@ function App() {
     }
     else
     {
+        console.log(`token Value : ${token}`);
         return (
             <UploadImageForm token={token}></UploadImageForm>
         );
