@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-async function registerUser(userInfo)
-    {
-        return axios.post('/api/register', userInfo)
-            .then(res =>{
-                return res.data.accessToken;
-            })
-    }
+ async function registerUser(userInfo) {
+     return await axios.post('/api/register', userInfo)
+         .then(res => {
+             return res.data.accessToken;
+         })
+ }
 
 
 
 
-export default function RegisterForm({setToken})
+export default  function RegisterForm({setToken})
     {
         const [name, setName] = useState();
         const [email, setEmail] = useState();
@@ -28,7 +27,9 @@ export default function RegisterForm({setToken})
                 password,
                 password_confirmation,
             });
-           setToken(token)
+            token.then(r => {
+                setToken(r)
+            })
         }
 
 
