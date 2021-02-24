@@ -23,10 +23,11 @@ function App() {
     } else {
         console.log(`token Value : ${token}`);
         return (
-            <div className="container">
-                 <Header></Header>
-                <UploadImageForm token={token}></UploadImageForm>
-            </div>
+            <Header token={token}></Header>
+            // <div className="container">
+            //      <Header></Header>
+            //     <UploadImageForm token={token}></UploadImageForm>
+            // </div>
         );
     }
 }

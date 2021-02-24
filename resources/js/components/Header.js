@@ -5,15 +5,17 @@ import Picture from "./Picture";
 import Favorites from "./Favorites";
 import Home from "./Home";
 import Logout from "./Logout";
+import UploadImageForm from "./UploadImageForm";
+import MainPage from "./Mainpage"
 
-export default function Header() {
-    console.log("Header");
+export default function Header(AuthToken) {
+
     return (
         <header>
             <nav>
                 <BrowserRouter>
                     <div>
-                        <ul class="menu align-right">
+                        <ul className="menu expanded">
                             <li>
                                 <Link to="/profile">Profile</Link>
                             </li>
@@ -21,27 +23,27 @@ export default function Header() {
                                 <Link to="/logout">Logout</Link>
                             </li>
                         </ul>
-                        <div class="small 12 columns">
-                            <div class="button-group">
+                        <div className="small 12 columns">
+                            <div className="button-group">
                                 <Link to="/home">
-                                    <i class="fas fa-home"></i>
-                                    <a class="button">Home</a>
+                                    <i className="fas fa-home"></i>
+                                    <a className="button">Home</a>
                                 </Link>
                                 <Link to="/picture">
-                                    <a class="button">Picture</a>
+                                    <a className="button">Picture</a>
                                 </Link>
                                 <Link to="/favorites">
-                                    <a class="button">Favorites</a>
+                                    <a className="button">Favorites</a>
                                 </Link>
                             </div>
                         </div>
                         <div className="main-route-place">
-                            <Route exact path="/home" component={Home} />
+                            <Route exact path="/home" component={() => <MainPage AuthToken={AuthToken} />} />
                             <Route exact path="/logout" component={Logout}/>
                             <Route exact path="/profile" component={Profile} />
-                            <Route exact path="/picture" component={Picture} />
+                            <Route exact path="/picture" component={() => <UploadImageForm AuthToken={AuthToken} />} />
                             <Route exact path="/favorites" component={Favorites} />
-                            
+                            <Route exact path="/" component={() => <MainPage AuthToken={AuthToken} />} />
                         </div>
                     </div>
                 </BrowserRouter>

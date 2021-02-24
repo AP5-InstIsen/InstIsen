@@ -12,7 +12,7 @@ async function uploadImage(data,header)
 
 export default function UploadImageForm(AuthToken)
 {
-    const BearerToken = 'Bearer '+AuthToken.token;
+    const BearerToken = 'Bearer '+AuthToken.AuthToken.token;
 
     const [path, setPath] = useState();
     const [ImageSelected, setImageSelected] = useState();
@@ -27,7 +27,7 @@ export default function UploadImageForm(AuthToken)
                 Authorization: BearerToken,
             }
         }
-        const token =  uploadImage(data,config);
+        const  token = uploadImage(data,config);
 
     }
      const fileChangedHandler = e => {
