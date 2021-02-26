@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect }from 'react';
 import axios from 'axios';
-
 
 async function uploadImage(data,header)
 {
@@ -12,31 +11,33 @@ async function uploadImage(data,header)
 
 
 
-
-export default function UploadImageForm(AuthToken)
+export default  function UploadImageForm(AuthToken)
 {
     const BearerToken = 'Bearer '+AuthToken.AuthToken.token;
-
+    let config = {
+        headers: {
+            Authorization: BearerToken,
+        }
+    }
     const [path, setPath] = useState();
     const [ImageSelected, setImageSelected] = useState();
     const [Legend, setLegend] = useState();
-
-    console.log(`token Value in UploadImageForm : ${BearerToken}`);
-
+    const [UserList, setUserList] = useState();
+    useEffect(()=>{
+        const fetchData = async () => {
+            const tmp = await axios.post('/api/get_users_list',null,config)
+            setUserList(tmp.data);
+        };
+        fetchData();
+    },[])
     const handleSubmit = async e => {
         e.preventDefault();
         const data = new FormData();
         data.append('image', ImageSelected);
         data.append('legend',Legend)
-        let config = {
-            headers: {
-                Authorization: BearerToken,
-            }
-        }
-        const  token = uploadImage(data,config);
+        await uploadImage(data,config);
     }
     const legendChangedHandler = async e =>{
-        console.log(e.target.value)
     setLegend(e.target.value)
     }
      const fileChangedHandler = e => {
@@ -66,7 +67,19 @@ export default function UploadImageForm(AuthToken)
                         <label> légende de la photo
                              <input type="text" onChange={legendChangedHandler}/>
                         </label>
+                        <label>
+                            liste de diffusion
+                            <input type="text" list="data" onChange={legendChangedHandler} />
 
+                            <datalist id="data">
+                                {
+                                    UserList.map(test =>{
+                                        console.log(test)
+                                    })
+                               }
+                            </datalist>
+
+                        </label>
                         <input type="submit" value="enregistrer"/>
                     </div>
                 </div>
