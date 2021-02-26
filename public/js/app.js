@@ -2909,21 +2909,21 @@ function uploadImage(_x, _x2) {
 }
 
 function _uploadImage() {
-  _uploadImage = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(data, header) {
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+  _uploadImage = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3(data, header) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee3$(_context3) {
       while (1) {
-        switch (_context2.prev = _context2.next) {
+        switch (_context3.prev = _context3.next) {
           case 0:
-            return _context2.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/upload', data, header).then(function (res) {
+            return _context3.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/upload', data, header).then(function (res) {
               return res;
             }));
 
           case 1:
           case "end":
-            return _context2.stop();
+            return _context3.stop();
         }
       }
-    }, _callee2);
+    }, _callee3);
   }));
   return _uploadImage.apply(this, arguments);
 }
@@ -2941,6 +2941,11 @@ function UploadImageForm(AuthToken) {
       ImageSelected = _useState4[0],
       setImageSelected = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      Legend = _useState6[0],
+      setLegend = _useState6[1];
+
   console.log("token Value in UploadImageForm : ".concat(BearerToken));
 
   var handleSubmit = /*#__PURE__*/function () {
@@ -2953,6 +2958,7 @@ function UploadImageForm(AuthToken) {
               e.preventDefault();
               data = new FormData();
               data.append('image', ImageSelected);
+              data.append('legend', Legend);
               config = {
                 headers: {
                   Authorization: BearerToken
@@ -2960,7 +2966,7 @@ function UploadImageForm(AuthToken) {
               };
               token = uploadImage(data, config);
 
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -2973,14 +2979,34 @@ function UploadImageForm(AuthToken) {
     };
   }();
 
+  var legendChangedHandler = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(e) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              console.log(e.target.value);
+              setLegend(e.target.value);
+
+            case 2:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function legendChangedHandler(_x4) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   var fileChangedHandler = function fileChangedHandler(e) {
-    console.log(e.target.files[0]);
     setImageSelected(e.target.files[0]);
     var reader = new FileReader();
 
     reader.onloadend = function () {
       setPath(reader.result);
-      console.log(path);
     };
 
     reader.readAsDataURL(e.target.files[0]);
@@ -3018,6 +3044,11 @@ function UploadImageForm(AuthToken) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
               type: "file",
               onChange: fileChangedHandler
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+            children: [" l\xE9gende de la photo", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+              type: "text",
+              onChange: legendChangedHandler
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
             type: "submit",

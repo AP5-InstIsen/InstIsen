@@ -10,33 +10,40 @@ async function uploadImage(data,header)
         })
 }
 
+
+
+
 export default function UploadImageForm(AuthToken)
 {
     const BearerToken = 'Bearer '+AuthToken.AuthToken.token;
 
     const [path, setPath] = useState();
     const [ImageSelected, setImageSelected] = useState();
+    const [Legend, setLegend] = useState();
+
     console.log(`token Value in UploadImageForm : ${BearerToken}`);
 
     const handleSubmit = async e => {
         e.preventDefault();
         const data = new FormData();
         data.append('image', ImageSelected);
+        data.append('legend',Legend)
         let config = {
             headers: {
                 Authorization: BearerToken,
             }
         }
         const  token = uploadImage(data,config);
-
+    }
+    const legendChangedHandler = async e =>{
+        console.log(e.target.value)
+    setLegend(e.target.value)
     }
      const fileChangedHandler = e => {
-        console.log(e.target.files[0])
          setImageSelected(e.target.files[0])
          let reader = new FileReader();
          reader.onloadend = () => {
                 setPath(reader.result);
-                console.log(path)
          }
          reader.readAsDataURL(e.target.files[0])
      }
@@ -54,9 +61,12 @@ export default function UploadImageForm(AuthToken)
                     <div className="medium-6 cell">
                         <label>Image to send
                             <input type="hidden" name="MAX_FILE_SIZE" value="15000000" />
-                            <input type="file" onChange={fileChangedHandler}
-                            />
+                            <input type="file" onChange={fileChangedHandler}/>
                         </label>
+                        <label> légende de la photo
+                             <input type="text" onChange={legendChangedHandler}/>
+                        </label>
+
                         <input type="submit" value="enregistrer"/>
                     </div>
                 </div>
