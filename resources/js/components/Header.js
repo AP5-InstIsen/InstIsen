@@ -4,7 +4,7 @@ import Profile from "./Profile";
 import Picture from "./Picture";
 import Favorites from "./Favorites";
 import Home from "./Home";
-import Logout from "./Logout";
+import LogoutForm from "./Logout";
 
 export default function Header() {
     console.log("Header");
@@ -37,11 +37,18 @@ export default function Header() {
                         </div>
                         <div className="main-route-place">
                             <Route exact path="/home" component={Home} />
-                            <Route exact path="/logout" component={Logout}/>
+                            <Route
+                                exact
+                                path="/logout"
+                                component={LogoutForm}
+                            />
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/picture" component={Picture} />
-                            <Route exact path="/favorites" component={Favorites} />
-                            
+                            <Route
+                                exact
+                                path="/favorites"
+                                component={Favorites}
+                            />
                         </div>
                     </div>
                 </BrowserRouter>

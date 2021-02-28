@@ -5,6 +5,7 @@ import MainPage from "./Mainpage";
 import LoginForm from "./LoginForm";
 import UploadImageForm from "./UploadImageForm";
 import Header from "./Header";
+import Logout from "./Logout";
 
 function App() {
     const [token, setToken] = useState();
@@ -24,7 +25,7 @@ function App() {
         console.log(`token Value : ${token}`);
         return (
             <div className="container">
-                 <Header></Header>
+                <Header></Header>
                 <UploadImageForm token={token}></UploadImageForm>
             </div>
         );
