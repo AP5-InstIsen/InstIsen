@@ -80,6 +80,7 @@ export default  function UploadImageForm(AuthToken)
                                     <option key={item.id} value={item.email} />
                                 )}
                             </datalist>
+                            <p className="help-text" >tu n'as pas encore crée de liste de diffusion ? clique <a  >ici</a></p>
                         </label>
                         <input type="submit" value="enregistrer"/>
                     </div>

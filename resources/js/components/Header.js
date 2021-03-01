@@ -35,12 +35,15 @@ export default function Header(AuthToken) {
                                 <Link to="/favorites">
                                     <a className="button">Favorites</a>
                                 </Link>
+                                <Link to="/profile">
+                                    <a className="button">profile</a>
+                                </Link>
                             </div>
                         </div>
                         <div className="main-route-place">
                             <Route exact path="/home" component={() => <MainPage AuthToken={AuthToken} />} />
                             <Route exact path="/logout" component={Logout}/>
-                            <Route exact path="/profile" component={Profile} />
+                            <Route exact path="/profile" component={() => <Profile AuthToken={AuthToken.token} />} />
                             <Route exact path="/picture" component={() => <UploadImageForm AuthToken={AuthToken} />} />
                             <Route exact path="/favorites" component={Favorites} />
                             <Route exact path="/" component={() => <MainPage AuthToken={AuthToken} />} />

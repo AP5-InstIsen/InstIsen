@@ -1914,10 +1914,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _RegisterForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegisterForm */ "./resources/js/components/RegisterForm.js");
-/* harmony import */ var _Mainpage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Mainpage */ "./resources/js/components/Mainpage.js");
-/* harmony import */ var _LoginForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LoginForm */ "./resources/js/components/LoginForm.js");
-/* harmony import */ var _UploadImageForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./UploadImageForm */ "./resources/js/components/UploadImageForm.js");
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
+/* harmony import */ var _LoginForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LoginForm */ "./resources/js/components/LoginForm.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
 
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -1938,8 +1936,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
 function App() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
@@ -1952,7 +1948,7 @@ function App() {
       setIsregister = _useState4[1];
 
   if (!token && !isregister) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_LoginForm__WEBPACK_IMPORTED_MODULE_5__.default, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_LoginForm__WEBPACK_IMPORTED_MODULE_4__.default, {
       setToken: setToken,
       setIsregister: setIsregister
     });
@@ -1964,13 +1960,9 @@ function App() {
     });
   } else {
     console.log("token Value : ".concat(token));
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_7__.default, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_5__.default, {
       token: token
-    }) // <div className="container">
-    //      <Header></Header>
-    //     <UploadImageForm token={token}></UploadImageForm>
-    // </div>
-    ;
+    });
   }
 }
 
@@ -2126,6 +2118,12 @@ function Header(AuthToken) {
                   className: "button",
                   children: "Favorites"
                 })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.default, {
+                to: "/profile",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+                  className: "button",
+                  children: "profile"
+                })
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -2145,7 +2143,11 @@ function Header(AuthToken) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.default, {
               exact: true,
               path: "/profile",
-              component: _Profile__WEBPACK_IMPORTED_MODULE_2__.default
+              component: function component() {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_2__.default, {
+                  AuthToken: AuthToken.token
+                });
+              }
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.default, {
               exact: true,
               path: "/picture",
@@ -2333,6 +2335,7 @@ function LoginForm(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              console.log("clique clique salope");
               e.preventDefault();
               token = LoginUser({
                 email: email,
@@ -2342,7 +2345,7 @@ function LoginForm(_ref) {
                 setToken(r);
               });
 
-            case 3:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -2620,62 +2623,21 @@ var Picture = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */   "default": () => /* binding */ Profile
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _diffusionListForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./diffusionListForm */ "./resources/js/components/diffusionListForm.js");
 
 
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var Profile = /*#__PURE__*/function (_React$Component) {
-  _inherits(Profile, _React$Component);
-
-  var _super = _createSuper(Profile);
-
-  function Profile() {
-    _classCallCheck(this, Profile);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Profile, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
-          children: "Profile"
-        })
-      });
-    }
-  }]);
-
-  return Profile;
-}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Profile);
+function Profile(AuthToken) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_diffusionListForm__WEBPACK_IMPORTED_MODULE_2__.default, {
+      AuthToken: AuthToken.AuthToken
+    })
+  });
+}
 
 /***/ }),
 
@@ -3086,6 +3048,11 @@ function UploadImageForm(AuthToken) {
                   value: item.email
                 }, item.id);
               })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+              className: "help-text",
+              children: ["tu n'as pas encore cr\xE9e de liste de diffusion ? clique ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+                children: "ici"
+              })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
             type: "submit",
@@ -3094,6 +3061,217 @@ function UploadImageForm(AuthToken) {
         })
       })
     }), $imagePreview]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/diffusionListForm.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/diffusionListForm.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ DiffusionListForm
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+function uploadDiffusionList(_x, _x2) {
+  return _uploadDiffusionList.apply(this, arguments);
+}
+
+function _uploadDiffusionList() {
+  _uploadDiffusionList = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee4(data, header) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            return _context4.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/', data, header).then(function (res) {
+              return res;
+            }));
+
+          case 1:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return _uploadDiffusionList.apply(this, arguments);
+}
+
+function DiffusionListForm(AuthToken) {
+  var BearerToken = 'Bearer ' + AuthToken.AuthToken;
+  var config = {
+    headers: {
+      Authorization: BearerToken
+    }
+  };
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      DiffusionListName = _useState2[0],
+      setDiffusionListName = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      UserList = _useState4[0],
+      setUserList = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(),
+      _useState6 = _slicedToArray(_useState5, 2),
+      BroadcastList = _useState6[0],
+      SetBroadcastList = _useState6[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    var tmp = axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/get_users_list', null, config);
+    tmp.then(function (resp) {
+      setUserList(resp.data.users);
+    });
+  }, []);
+
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(e) {
+      var data, tab, tmp, i, j;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              data = new FormData();
+              data.append('name', DiffusionListName);
+              tab = BroadcastList.split(",");
+              tmp = [];
+
+              for (i in tab) {
+                for (j in UserList) {
+                  if (tab[i] === UserList[j].email) {
+                    tmp.push(UserList[j].id);
+                  }
+                }
+              }
+
+              console.log(tmp.join(","));
+              data.append("diffusionList", tmp.join(","));
+              _context.next = 10;
+              return uploadDiffusionList(data, config);
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function handleSubmit(_x3) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var DiffusionListNameChangeHandler = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(e) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              setDiffusionListName(e.target.value);
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function DiffusionListNameChangeHandler(_x4) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var BroadcastListListChangeHandler = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3(e) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              SetBroadcastList(e.target.value);
+
+            case 1:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function BroadcastListListChangeHandler(_x5) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "grid-container",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+      onSubmit: handleSubmit,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+        children: ["nom de la liste de diffusion", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+          type: "text",
+          list: "data",
+          onChange: DiffusionListNameChangeHandler,
+          required: true
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+        children: ["liste de diffusion", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+          type: "email",
+          list: "data",
+          onChange: BroadcastListListChangeHandler,
+          multiple: true,
+          required: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("datalist", {
+          id: "data",
+          children: UserList.map(function (item) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+              value: item.email
+            }, item.id);
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+        type: "submit",
+        value: "enregistrer"
+      })]
+    })
   });
 }
 

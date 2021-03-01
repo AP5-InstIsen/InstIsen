@@ -18,6 +18,7 @@ export default function LoginForm({setToken, setIsregister})
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
+        console.log("clique clique salope")
         e.preventDefault();
         const token =  LoginUser({
             email,
