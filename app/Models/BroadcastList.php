@@ -15,6 +15,7 @@ class BroadcastList extends Model
          */
     protected $fillable = [
         'idUser',
+        'name',
         'broadcast'
     ];
 
