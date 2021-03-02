@@ -17,7 +17,7 @@ class BroadcastListController extends Controller
                     'broadcast' => 'string'
             ]);
 
-        $users = User::all()->except($currentUser->id);
+        $users = User::all();
         $newBroadcastList = "";
         foreach (explode(',', $request->broadcast) as $userToBroadcast) {
             foreach ($users as $user) {
