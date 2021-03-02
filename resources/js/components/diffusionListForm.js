@@ -3,7 +3,7 @@ import axios from 'axios';
 
 async function uploadDiffusionList(data,header)
 {
-    return axios.post('/api/', data,header)
+    return axios.post('/api/create_broadcast_list', data,header)
         .then(res =>{
             return res;
         })
@@ -13,6 +13,7 @@ async function uploadDiffusionList(data,header)
 export default  function DiffusionListForm(AuthToken)
 {
     const BearerToken = 'Bearer '+AuthToken.AuthToken;
+    console.log(BearerToken)
     let config = {
         headers: {
             Authorization: BearerToken,
@@ -44,8 +45,8 @@ export default  function DiffusionListForm(AuthToken)
             }
         }
         console.log(tmp.join(","))
-        data.append("diffusionList",tmp.join(","));
-
+        data.append("broadcast",tmp.join(","));
+console.log(data)
         await uploadDiffusionList(data,config);
     }
     const DiffusionListNameChangeHandler = async e =>{
@@ -59,7 +60,7 @@ export default  function DiffusionListForm(AuthToken)
             <form onSubmit={handleSubmit}>
                 <label>
                     nom de la liste de diffusion
-                    <input type="text" list="data" onChange={DiffusionListNameChangeHandler} required/>
+                    <input type="text"  onChange={DiffusionListNameChangeHandler} required/>
                 </label>
                         <label>
                             liste de diffusion
