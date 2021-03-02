@@ -1,27 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import RegisterForm from "./RegisterForm";
+import MainPage from "./Mainpage";
+import LoginForm from "./LoginForm";
+import UploadImageForm from "./UploadImageForm";
 import Header from "./Header";
-import Name from "./SecondExample";
 
 function App() {
-    return (
-        <div className="container">
-            <Header></Header>
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
+    const [token, setToken] = useState();
+    const [isregister, setIsregister] = useState();
 
-                        <div className="card-body">
-                            I'm an example component!
-                        </div>
-                    </div>
-                    <Name name="John"></Name>
-                    <Name name="Doe"></Name>
-                </div>
+    if (!token && !isregister) {
+        return (
+            <LoginForm
+                setToken={setToken}
+                setIsregister={setIsregister}
+            ></LoginForm>
+        );
+    }
+    if (!token && isregister === "1") {
+        return <RegisterForm setToken={setToken}></RegisterForm>;
+    } else {
+        console.log(`token Value : ${token}`);
+        return (
+            <div className="container">
+                 <Header></Header>
+                <UploadImageForm token={token}></UploadImageForm>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default App;

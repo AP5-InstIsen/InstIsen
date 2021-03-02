@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,7 +24,7 @@ class AuthController extends Controller
 
         $accessToken = $user->createToken('authToken')->accessToken;
 
-        return response(['username' => $user, 'accessToken' => $accessToken]);
+        return response(['message' => 'registered successfully'], 201);
     }
 
     public function login(Request $request)
@@ -40,5 +41,11 @@ class AuthController extends Controller
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
         return response(['user'=> auth()->user(), 'accessToken' => $accessToken]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('api')->user()->token()->revoke();
+        return response(['message'=> 'successfully logged out']);
     }
 }
