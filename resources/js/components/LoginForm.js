@@ -1,33 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../../css/styles.css";
-import "./LoginAnimators";
 
 async function LoginUser(userInfo) {
-    return await axios.post("/api/login", userInfo).then((res) => {
+    return await axios.post('/api/login', userInfo).then((res) => {
         return res.data.accessToken;
     });
 }
 
+async function registerUser(userInfo) {
+    return await axios.post('/api/register', userInfo)
+        .then(res => {
+            return res.data.accessToken;
+        })
+}
+
 export default function LoginForm({ setToken, setIsregister }) {
+
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
+    const [name, setName] = useState("");
+    const [password_confirmation, setpassword_confirmation] = useState("");
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = LoginUser({
-            email,
-            password,
-        });
-        token.then((r) => {
-            setToken(r);
-        });
+        if (name ==="" && password_confirmation === "")
+        {
+            const token = LoginUser({
+                email,
+                password,
+            });
+            token.then((r) => {
+                setToken(r);
+            });
+        }
+        if(name != "" && password_confirmation !="")
+        {
+            const token =  registerUser({
+                name,
+                email,
+                password,
+                password_confirmation,
+            });
+        setName("");
+        setpassword_confirmation("");
+        } 
+       
     };
-    const handleRegister = async (e) => {
-        console.log("click");
-        setIsregister("1");
-    };
-
+    
+    useEffect(() =>{
+        const switchers = [...document.querySelectorAll('.switcher')]
+        switchers.forEach(item => {
+            item.addEventListener('click', function() {
+                switchers.forEach(item => item.parentElement.classList.remove('is-active'))
+                this.parentElement.classList.add('is-active')
+                
+            })
+        })
+       
+    },[])
+  
     return (
         <section className="forms-section">
             <h1 className="section-title">InstISEN</h1>
@@ -37,7 +72,7 @@ export default function LoginForm({ setToken, setIsregister }) {
                         Login
                         <span className="underline"></span>
                     </button>
-                    <form className="form form-login">
+                    <form className="form form-login"  onSubmit={handleSubmit}>
                         <fieldset>
                             <legend>
                                 Please, enter your email and password for login.
@@ -68,7 +103,6 @@ export default function LoginForm({ setToken, setIsregister }) {
                         <button
                             type="submit"
                             className="btn-login"
-                            onSubmit={handleSubmit}
                         >
                             Login
                         </button>
@@ -79,7 +113,7 @@ export default function LoginForm({ setToken, setIsregister }) {
                         Sign Up
                         <span className="underline"></span>
                     </button>
-                    <form className="form form-signup">
+                    <form className="form form-signup"  onSubmit={handleSubmit}>
                         <fieldset>
                             <legend>
                                 Please, enter your email, password and password
@@ -90,6 +124,9 @@ export default function LoginForm({ setToken, setIsregister }) {
                                 <input
                                     id="signup-email"
                                     type="email"
+                                    onChange={(e) =>
+                                        setEmail(e.target.value)
+                                    }
                                     required
                                 />
                             </div>
@@ -100,6 +137,33 @@ export default function LoginForm({ setToken, setIsregister }) {
                                 <input
                                     id="signup-password"
                                     type="password"
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                    required
+                                />
+                                 <label htmlFor="signup-password-confirmation">
+                                    Password Confirmation
+                                </label>
+                                 <input
+                                    id="signup-password-confirmation"
+                                    type="password"
+                                    
+                                    onChange={(e) =>
+                                        setpassword_confirmation(e.target.value)
+                                    }
+                                    required
+                                />
+                                <label htmlFor="signup-name">
+                                    name
+                                </label>
+                                 <input
+                                    id="signup-password-confirmation"
+                                    type="text"
+                                    
+                                    onChange={(e) =>
+                                        setName(e.target.value)
+                                    }
                                     required
                                 />
                             </div>

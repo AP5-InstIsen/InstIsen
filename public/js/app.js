@@ -2081,50 +2081,86 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Header() {
-  console.log("Header");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("header", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.default, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
-            "class": "menu align-right",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
-                to: "/profile",
-                children: "Profile"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
-                to: "/logout",
-                children: "Logout"
-              })
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            "class": "title-bar",
+            "data-responsive-toggle": "example-animated-menu",
+            "data-hide-for": "medium",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+              "class": "menu-icon",
+              type: "button",
+              "data-toggle": true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+              "class": "title-bar-title",
+              children: "Menu"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-            "class": "small 12 columns",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-              "class": "button-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
-                to: "/home",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                  "class": "fas fa-home"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-                  "class": "button",
-                  children: "Home"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            "class": "top-bar",
+            id: "example-animated-menu",
+            "data-animate": "hinge-in-from-top spin-out",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+              "class": "top-bar-left",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+                "class": "dropdown menu",
+                "data-dropdown-menu": true,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  "class": "menu-text",
+                  children: "InstISEN"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
+                    to: "/home",
+                    children: "Home"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
+                    to: "/picture",
+                    children: "Picture"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
+                    to: "/favorites",
+                    children: "Favorites"
+                  })
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
-                to: "/picture",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-                  "class": "button",
-                  children: "Picture"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+              "class": "top-bar-middle",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+                "class": "dropdown menu",
+                "data-dropdown-menu": true,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                    type: "search",
+                    placeholder: "Search"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+                    type: "button",
+                    "class": "button",
+                    children: "Search"
+                  })
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+              "class": "top-bar-right"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+              "class": "dropdown menu",
+              "data-dropdown-menu": true,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
+                  to: "/profile",
+                  children: "Profile"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
-                to: "/favorites",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-                  "class": "button",
-                  children: "Favorites"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.default, {
+                  to: "/logout",
+                  children: "Logout"
                 })
               })]
-            })
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
             className: "main-route-place",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.default, {
@@ -2242,9 +2278,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _css_styles_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../css/styles.css */ "./resources/css/styles.css");
 
 
 
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -2265,18 +2310,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 function LoginUser(_x) {
   return _LoginUser.apply(this, arguments);
 }
 
 function _LoginUser() {
-  _LoginUser = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3(userInfo) {
+  _LoginUser = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(userInfo) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/login', userInfo).then(function (res) {
+              return res.data.accessToken;
+            });
+
+          case 2:
+            return _context2.abrupt("return", _context2.sent);
+
+          case 3:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _LoginUser.apply(this, arguments);
+}
+
+function registerUser(_x2) {
+  return _registerUser.apply(this, arguments);
+}
+
+function _registerUser() {
+  _registerUser = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee3(userInfo) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/login', userInfo).then(function (res) {
+            return axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/register', userInfo).then(function (res) {
               return res.data.accessToken;
             });
 
@@ -2290,7 +2364,7 @@ function _LoginUser() {
       }
     }, _callee3);
   }));
-  return _LoginUser.apply(this, arguments);
+  return _registerUser.apply(this, arguments);
 }
 
 function LoginForm(_ref) {
@@ -2307,21 +2381,46 @@ function LoginForm(_ref) {
       password = _useState4[0],
       setPassword = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      name = _useState6[0],
+      setName = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(""),
+      _useState8 = _slicedToArray(_useState7, 2),
+      password_confirmation = _useState8[0],
+      setpassword_confirmation = _useState8[1];
+
   var handleSubmit = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(e) {
-      var token;
+      var token, _token;
+
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
-              token = LoginUser({
-                email: email,
-                password: password
-              });
-              token.then(function (r) {
-                setToken(r);
-              });
+
+              if (name === "" && password_confirmation === "") {
+                token = LoginUser({
+                  email: email,
+                  password: password
+                });
+                token.then(function (r) {
+                  setToken(r);
+                });
+              }
+
+              if (name != "" && password_confirmation != "") {
+                _token = registerUser({
+                  name: name,
+                  email: email,
+                  password: password,
+                  password_confirmation: password_confirmation
+                });
+                setName("");
+                setpassword_confirmation("");
+              }
 
             case 3:
             case "end":
@@ -2331,71 +2430,148 @@ function LoginForm(_ref) {
       }, _callee);
     }));
 
-    return function handleSubmit(_x2) {
+    return function handleSubmit(_x3) {
       return _ref2.apply(this, arguments);
     };
   }();
 
-  var handleRegister = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2(e) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              console.log("click");
-              setIsregister("1");
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    var switchers = _toConsumableArray(document.querySelectorAll('.switcher'));
 
-            case 2:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function handleRegister(_x3) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("form", {
-    onSubmit: handleSubmit,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-      className: "grid-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        className: "grid-x grid-padding-x",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          className: "medium-6 cell",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
-            children: ["Email", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-              type: "text",
-              name: "email",
-              placeholder: "john@doe.com",
-              onChange: function onChange(e) {
-                return setEmail(e.target.value);
-              }
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
-            children: ["Password", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-              type: "password",
-              name: "password",
-              onChange: function onChange(e) {
-                return setPassword(e.target.value);
-              }
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
-            type: "submit",
-            value: "Connexion"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-            className: "help-text",
-            children: ["pas encore inscrit? clique ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-              onClick: handleRegister,
-              children: "ici"
-            })]
+    switchers.forEach(function (item) {
+      item.addEventListener('click', function () {
+        switchers.forEach(function (item) {
+          return item.parentElement.classList.remove('is-active');
+        });
+        this.parentElement.classList.add('is-active');
+      });
+    });
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
+    className: "forms-section",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+      className: "section-title",
+      children: "InstISEN"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "forms",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "form-wrapper is-active",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+          type: "button",
+          className: "switcher switcher-login",
+          children: ["Login", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+            className: "underline"
           })]
-        })
-      })
-    })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+          className: "form form-login",
+          onSubmit: handleSubmit,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", {
+              children: "Please, enter your email and password for login."
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              className: "input-block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+                htmlFor: "login-email",
+                children: "E-mail"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                id: "login-email",
+                type: "email",
+                name: "email",
+                onChange: function onChange(e) {
+                  return setEmail(e.target.value);
+                },
+                required: true
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              className: "input-block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+                htmlFor: "login-password",
+                children: "Password"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                id: "login-password",
+                type: "password",
+                name: "password",
+                onChange: function onChange(e) {
+                  return setPassword(e.target.value);
+                },
+                required: true
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+            type: "submit",
+            className: "btn-login",
+            children: "Login"
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "form-wrapper",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("button", {
+          type: "button",
+          className: "switcher switcher-signup",
+          children: ["Sign Up", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+            className: "underline"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+          className: "form form-signup",
+          onSubmit: handleSubmit,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("fieldset", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("legend", {
+              children: "Please, enter your email, password and password confirmation for sign up."
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              className: "input-block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+                htmlFor: "signup-email",
+                children: "E-mail"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                id: "signup-email",
+                type: "email",
+                onChange: function onChange(e) {
+                  return setEmail(e.target.value);
+                },
+                required: true
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              className: "input-block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+                htmlFor: "signup-password",
+                children: "Password"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                id: "signup-password",
+                type: "password",
+                onChange: function onChange(e) {
+                  return setPassword(e.target.value);
+                },
+                required: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+                htmlFor: "signup-password-confirmation",
+                children: "Password Confirmation"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                id: "signup-password-confirmation",
+                type: "password",
+                onChange: function onChange(e) {
+                  return setpassword_confirmation(e.target.value);
+                },
+                required: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("label", {
+                htmlFor: "signup-name",
+                children: "name"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+                id: "signup-password-confirmation",
+                type: "text",
+                onChange: function onChange(e) {
+                  return setName(e.target.value);
+                },
+                required: true
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+            type: "submit",
+            className: "btn-signup",
+            children: "Continue"
+          })]
+        })]
+      })]
+    })]
   });
 }
 
@@ -3008,6 +3184,106 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/styles.css":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/styles.css ***!
+  \********************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "*,\r\n*::before,\r\n*::after {\r\n\tbox-sizing: border-box;\r\n}\r\n\r\nbody {\r\n\tmargin: 0;\r\n\tfont-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;\r\n\tbackground: #3b4465;\r\n}\r\n\r\n.forms-section {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n}\r\n\r\n.section-title {\r\n\tfont-size: 32px;\r\n\tletter-spacing: 1px;\r\n\tcolor: #fff;\r\n}\r\n\r\n.forms {\r\n\tdisplay: flex;\r\n\talign-items: flex-start;\r\n\tmargin-top: 30px;\r\n}\r\n\r\n.form-wrapper {\r\n\t-webkit-animation: hideLayer .3s ease-out forwards;\r\n\t        animation: hideLayer .3s ease-out forwards;\r\n}\r\n\r\n.form-wrapper.is-active {\r\n\t-webkit-animation: showLayer .3s ease-in forwards;\r\n\t        animation: showLayer .3s ease-in forwards;\r\n}\r\n\r\n@-webkit-keyframes showLayer {\r\n\t50% {\r\n\t\tz-index: 1;\r\n\t}\r\n\t100% {\r\n\t\tz-index: 1;\r\n\t}\r\n}\r\n\r\n@keyframes showLayer {\r\n\t50% {\r\n\t\tz-index: 1;\r\n\t}\r\n\t100% {\r\n\t\tz-index: 1;\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes hideLayer {\r\n\t0% {\r\n\t\tz-index: 1;\r\n\t}\r\n\t49.999% {\r\n\t\tz-index: 1;\r\n\t}\r\n}\r\n\r\n@keyframes hideLayer {\r\n\t0% {\r\n\t\tz-index: 1;\r\n\t}\r\n\t49.999% {\r\n\t\tz-index: 1;\r\n\t}\r\n}\r\n\r\n.switcher {\r\n\tposition: relative;\r\n\tcursor: pointer;\r\n\tdisplay: block;\r\n\tmargin-right: auto;\r\n\tmargin-left: auto;\r\n\tpadding: 0;\r\n\ttext-transform: uppercase;\r\n\tfont-family: inherit;\r\n\tfont-size: 16px;\r\n\tletter-spacing: .5px;\r\n\tcolor: #999;\r\n\tbackground-color: transparent;\r\n\tborder: none;\r\n\toutline: none;\r\n\ttransform: translateX(0);\r\n\ttransition: all .3s ease-out;\r\n}\r\n\r\n.form-wrapper.is-active .switcher-login {\r\n\tcolor: #fff;\r\n\ttransform: translateX(90px);\r\n}\r\n\r\n.form-wrapper.is-active .switcher-signup {\r\n\tcolor: #fff;\r\n\ttransform: translateX(-90px);\r\n}\r\n\r\n.underline {\r\n\tposition: absolute;\r\n\tbottom: -5px;\r\n\tleft: 0;\r\n\toverflow: hidden;\r\n\tpointer-events: none;\r\n\twidth: 100%;\r\n\theight: 2px;\r\n}\r\n\r\n.underline::before {\r\n\tcontent: '';\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tleft: inherit;\r\n\tdisplay: block;\r\n\twidth: inherit;\r\n\theight: inherit;\r\n\tbackground-color: currentColor;\r\n\ttransition: transform .2s ease-out;\r\n}\r\n\r\n.switcher-login .underline::before {\r\n\ttransform: translateX(101%);\r\n}\r\n\r\n.switcher-signup .underline::before {\r\n\ttransform: translateX(-101%);\r\n}\r\n\r\n.form-wrapper.is-active .underline::before {\r\n\ttransform: translateX(0);\r\n}\r\n\r\n.form {\r\n\toverflow: hidden;\r\n\tmin-width: 260px;\r\n\tmargin-top: 50px;\r\n\tpadding: 30px 25px;\r\n  border-radius: 5px;\r\n\ttransform-origin: top;\r\n}\r\n\r\n.form-login {\r\n\t-webkit-animation: hideLogin .3s ease-out forwards;\r\n\t        animation: hideLogin .3s ease-out forwards;\r\n}\r\n\r\n.form-wrapper.is-active .form-login {\r\n\t-webkit-animation: showLogin .3s ease-in forwards;\r\n\t        animation: showLogin .3s ease-in forwards;\r\n}\r\n\r\n@-webkit-keyframes showLogin {\r\n\t0% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(40%, 10px);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0);\r\n\t}\r\n\t100% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(35%, -20px);\r\n\t}\r\n}\r\n\r\n@keyframes showLogin {\r\n\t0% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(40%, 10px);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0);\r\n\t}\r\n\t100% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(35%, -20px);\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes hideLogin {\r\n\t0% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(35%, -20px);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0);\r\n\t}\r\n\t100% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(40%, 10px);\r\n\t}\r\n}\r\n\r\n@keyframes hideLogin {\r\n\t0% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(35%, -20px);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0);\r\n\t}\r\n\t100% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(40%, 10px);\r\n\t}\r\n}\r\n\r\n.form-signup {\r\n\t-webkit-animation: hideSignup .3s ease-out forwards;\r\n\t        animation: hideSignup .3s ease-out forwards;\r\n}\r\n\r\n.form-wrapper.is-active .form-signup {\r\n\t-webkit-animation: showSignup .3s ease-in forwards;\r\n\t        animation: showSignup .3s ease-in forwards;\r\n}\r\n\r\n@-webkit-keyframes showSignup {\r\n\t0% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(-40%, 10px) scaleY(.8);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0) scaleY(.8);\r\n\t}\r\n\t100% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(-35%, -20px) scaleY(1);\r\n\t}\r\n}\r\n\r\n@keyframes showSignup {\r\n\t0% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(-40%, 10px) scaleY(.8);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0) scaleY(.8);\r\n\t}\r\n\t100% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(-35%, -20px) scaleY(1);\r\n\t}\r\n}\r\n\r\n@-webkit-keyframes hideSignup {\r\n\t0% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(-35%, -20px) scaleY(1);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0) scaleY(.8);\r\n\t}\r\n\t100% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(-40%, 10px) scaleY(.8);\r\n\t}\r\n}\r\n\r\n@keyframes hideSignup {\r\n\t0% {\r\n\t\tbackground-color: #fff;\r\n\t\ttransform: translate(-35%, -20px) scaleY(1);\r\n\t}\r\n\t50% {\r\n\t\ttransform: translate(0, 0) scaleY(.8);\r\n\t}\r\n\t100% {\r\n\t\tbackground: #d7e7f1;\r\n\t\ttransform: translate(-40%, 10px) scaleY(.8);\r\n\t}\r\n}\r\n\r\n.form fieldset {\r\n\tposition: relative;\r\n\topacity: 0;\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tborder: 0;\r\n\ttransition: all .3s ease-out;\r\n}\r\n\r\n.form-login fieldset {\r\n\ttransform: translateX(-50%);\r\n}\r\n\r\n.form-signup fieldset {\r\n\ttransform: translateX(50%);\r\n}\r\n\r\n.form-wrapper.is-active fieldset {\r\n\topacity: 1;\r\n\ttransform: translateX(0);\r\n\ttransition: opacity .4s ease-in, transform .35s ease-in;\r\n}\r\n\r\n.form legend {\r\n\tposition: absolute;\r\n\toverflow: hidden;\r\n\twidth: 1px;\r\n\theight: 1px;\r\n\tclip: rect(0 0 0 0);\r\n}\r\n\r\n.input-block {\r\n\tmargin-bottom: 20px;\r\n}\r\n\r\n.input-block label {\r\n\tfont-size: 14px;\r\n  color: #a1b4b4;\r\n}\r\n\r\n.input-block input {\r\n\tdisplay: block;\r\n\twidth: 100%;\r\n\tmargin-top: 8px;\r\n\tpadding-right: 15px;\r\n\tpadding-left: 15px;\r\n\tfont-size: 16px;\r\n\tline-height: 40px;\r\n\tcolor: #3b4465;\r\n  background: #eef9fe;\r\n  border: 1px solid #cddbef;\r\n  border-radius: 2px;\r\n}\r\n\r\n.form [type='submit'] {\r\n\topacity: 0;\r\n\tdisplay: block;\r\n\tmin-width: 120px;\r\n\tmargin: 30px auto 10px;\r\n\tfont-size: 18px;\r\n\tline-height: 40px;\r\n\tborder-radius: 25px;\r\n\tborder: none;\r\n\ttransition: all .3s ease-out;\r\n}\r\n\r\n.form-wrapper.is-active .form [type='submit'] {\r\n\topacity: 1;\r\n\ttransform: translateX(0);\r\n\ttransition: all .4s ease-in;\r\n}\r\n\r\n.btn-login {\r\n\tcolor: #fbfdff;\r\n\tbackground: #a7e245;\r\n\ttransform: translateX(-30%);\r\n}\r\n\r\n.btn-signup {\r\n\tcolor: #a7e245;\r\n\tbackground: #fbfdff;\r\n\tbox-shadow: inset 0 0 0 2px #a7e245;\r\n\ttransform: translateX(30%);\r\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
 
 /***/ }),
 
@@ -79623,6 +79899,315 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "./node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./resources/css/styles.css":
+/*!**********************************!*\
+  !*** ./resources/css/styles.css ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./styles.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/styles.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_styles_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_styles_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
 
 /***/ }),
 
