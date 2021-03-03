@@ -13,10 +13,11 @@ class BroadcastListController extends Controller
     {
         $currentUser = Auth::guard('api')->user();
         $validated = $request->validate([
+                    'name' => 'string',
                     'broadcast' => 'string'
             ]);
 
-        $users = User::all()->except($currentUser->id);
+        $users = User::all();
         $newBroadcastList = "";
         foreach (explode(',', $request->broadcast) as $userToBroadcast) {
             foreach ($users as $user) {
@@ -32,6 +33,7 @@ class BroadcastListController extends Controller
 
         $broadcast_list = BroadcastList::create([
                         'idUser' => $currentUser->id,
+                        'name' => $request->name,
                         'broadcast' => $newBroadcastList
             ]);
 
@@ -48,5 +50,12 @@ class BroadcastListController extends Controller
     {
         $broadcast_list = BroadcastList::find($request->id);
         return response(['broadcast_list' => $broadcast_list]);
+    }
+
+    public function getBroadcastLists(Request $request)
+    {
+        $currentUser = Auth::guard('api')->user();
+        $broadcast_list = BroadcastList::where('idUser', $currentUser->id)->get();
+        return response(['broadcast_lists' => $broadcast_list]);
     }
 }

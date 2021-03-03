@@ -33,6 +33,7 @@ Route::middleware('isAuthenticated')->group(function () {
     Route::post('/upload', [ImageController::class, 'store']);
     Route::post('/create_broadcast_list', [BroadcastListController::class, 'store']);
     Route::post('/get_users_list', [UserController::class, 'getUsersList']);
+    Route::post('/get_broadcast_lists', [BroadcastListController::class, 'getBroadcastLists']);
     Route::post('/get_broadcast_list_by_id', [BroadcastListController::class, 'getBroadcastListById']);
     Route::post('/get_broadcast_list_by_user_id', [BroadcastListController::class, 'getBroadcastListByUserId']);
     Route::post('/get_image_by_id', [ImageController::class, 'getImageById']);
