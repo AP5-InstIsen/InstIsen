@@ -39,7 +39,7 @@ export default function LoginForm({ setToken, setIsregister }) {
         }
         if(name != "" && password_confirmation !="")
         {
-            const token =  registerUser({
+            registerUser({
                 name,
                 email,
                 password,

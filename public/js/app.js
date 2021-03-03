@@ -2393,8 +2393,7 @@ function LoginForm(_ref) {
 
   var handleSubmit = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(e) {
-      var token, _token;
-
+      var token;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -2412,7 +2411,7 @@ function LoginForm(_ref) {
               }
 
               if (name != "" && password_confirmation != "") {
-                _token = registerUser({
+                registerUser({
                   name: name,
                   email: email,
                   password: password,
