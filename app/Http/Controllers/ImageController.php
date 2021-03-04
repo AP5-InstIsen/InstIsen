@@ -69,9 +69,24 @@ class ImageController extends Controller
         foreach ($broadcast_lists as $blist) {
             array_push($broadcast_lists_ids, $blist['id']);
         }
-        $images = Image::whereIn('idBroadcastList', $broadcast_lists_ids)->get();
+        $imagesDB = Image::whereIn('idBroadcastList', $broadcast_lists_ids)->get();
+        $images_list = array();
+        foreach($imagesDB as $image){
+            $newImage = array(
+                'id' => $image->id,
+                'path' => Storage::url($image->path),
+                'idUser' => $image->idUser,
+                'idBroadcastList' => $image->idBroadcastList,
+                'legend' => $image->legend,
+                'note' => $image->note,
+                'exifs' => $image->exifs,
+                'created_at' => $image->created_at,
+                'updated_at' => $image->updated_at,
+            );
+            array_push($images_list, $newImage);
+        }
 
-        return response(['images_list' => $images]);
+        return response(['images_list' => $images_list]);
     }
     /*public function viewUploads()
     {
