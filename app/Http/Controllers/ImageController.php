@@ -22,7 +22,7 @@ class ImageController extends Controller
                     'id_broadcast_list' => 'integer',
                     'legend' => 'string'
                     ]);
-                $path = $request->image->store('images');
+                $path = $request->image->store('public');
                 $image = Image::create([
                         'path' => $path,
                         'idUser' => $user->id,
@@ -74,7 +74,7 @@ class ImageController extends Controller
         foreach($imagesDB as $image){
             $newImage = array(
                 'id' => $image->id,
-                'path' => Storage::url($image->path),
+                'path' => asset(Storage::url($image->path)),
                 'idUser' => $image->idUser,
                 'idBroadcastList' => $image->idBroadcastList,
                 'legend' => $image->legend,
