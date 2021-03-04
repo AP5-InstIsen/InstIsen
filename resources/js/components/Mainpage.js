@@ -1,32 +1,42 @@
-import React from "react";
-import Header from "./Header";
+import React, { useEffect, useState } from 'react';
 
 
-
-async function GetImageIdList(Token)
-{
-    const data = new FormData();
-    let config = {
-        headers: {
-            Authorization: Token,
-        }
-    }
-    return axios.post('/api/get_wall',data,config)
-        .then(res =>{
-            console.log(`results api getWall : ${res}`)
-            return res;
-        })
-}
 
 
 export default function MainPage(AuthToken)
 {
+    const [ImageList,setImageList] = useState({"images_list":[]});
+    useEffect(GetImageIdList, []);
     const BearerToken = 'Bearer '+AuthToken.AuthToken.token;
-    GetImageIdList(BearerToken);
-    return(
-        <div>
-            <p>{BearerToken}</p>
+
+     function GetImageIdList()
+    {
+        const data = new FormData();
+        let config = {
+            headers: {
+                Authorization: BearerToken,
+            }
+        }
+         axios.post('/api/get_wall',data,config)
+            .then(res =>{
+
+                console.log(`results api getWall : ${res.data}`)
+                setImageList(res.data);
+            })
+    }
+
+    const classNames = `videoList ${ImageList?.length ? '' : 'is-loading'}`;
+    return (
+        <div className="container">
+            <header>
+                <h1>Recommandations</h1>
+            </header>
+            <div className={classNames}>
+                {ImageList.images_list.map(image => (
+                    <img src={image.path} key={image.id}/>
+                ))}
+            </div>
         </div>
-    )
+    );
 }
 
