@@ -15,7 +15,7 @@ export default function Header(AuthToken) {
             <nav>
                 <BrowserRouter>
                     <div>
-                        <ul className="menu expanded">
+                        <ul class="menu align-right">
                             <li>
                                 <Link to="/profile">Profile</Link>
                             </li>
@@ -23,30 +23,51 @@ export default function Header(AuthToken) {
                                 <Link to="/logout">Logout</Link>
                             </li>
                         </ul>
-                        <div className="small 12 columns">
-                            <div className="button-group">
+                        <div class="small 12 columns">
+                            <div class="button-group">
                                 <Link to="/home">
-                                    <i className="fas fa-home"></i>
-                                    <a className="button">Home</a>
+                                    <i class="fas fa-home"></i>
+                                    <a class="button">Home</a>
                                 </Link>
                                 <Link to="/picture">
-                                    <a className="button">Picture</a>
+                                    <a class="button">Picture</a>
                                 </Link>
                                 <Link to="/favorites">
-                                    <a className="button">Favorites</a>
-                                </Link>
-                                <Link to="/profile">
-                                    <a className="button">profile</a>
+                                    <a class="button">Favorites</a>
                                 </Link>
                             </div>
+                            <div class="top-bar-middle">
+                                <ul class="dropdown menu" data-dropdown-menu>
+                                    <li>
+                                        <input
+                                            type="search"
+                                            placeholder="Search"
+                                        />
+                                    </li>
+                                    <li>
+                                        <button type="button" class="button">
+                                            Search
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="top-bar-right"></div>
+                            <ul class="dropdown menu" data-dropdown-menu>
+                                <li>
+                                    <Link to="/profile">Profile</Link>
+                                </li>
+                                <li>
+                                    <Link to="/logout">Logout</Link>
+                                </li>
+                            </ul>
                         </div>
                         <div className="main-route-place">
-                            <Route exact path="/home" component={() => <MainPage AuthToken={AuthToken} />} />
+                            <Route exact path="/home" component={Home} />
                             <Route exact path="/logout" component={Logout}/>
-                            <Route exact path="/profile" component={() => <Profile AuthToken={AuthToken.token} />} />
-                            <Route exact path="/picture" component={() => <UploadImageForm AuthToken={AuthToken} />} />
+                            <Route exact path="/profile" component={Profile} />
+                            <Route exact path="/picture" component={Picture} />
                             <Route exact path="/favorites" component={Favorites} />
-                            <Route exact path="/" component={() => <MainPage AuthToken={AuthToken} />} />
+                            
                         </div>
                     </div>
                 </BrowserRouter>
