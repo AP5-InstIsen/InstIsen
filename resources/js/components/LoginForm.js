@@ -3,32 +3,27 @@ import axios from "axios";
 import "../../css/styles.css";
 
 async function LoginUser(userInfo) {
-    return await axios.post('/api/login', userInfo).then((res) => {
+    return await axios.post("/api/login", userInfo).then((res) => {
         return res.data.accessToken;
     });
 }
 
 async function registerUser(userInfo) {
-    return await axios.post('/api/register', userInfo)
-        .then(res => {
-            return res.data.accessToken;
-        })
+    return await axios.post("/api/register", userInfo).then((res) => {
+        return res.data.accessToken;
+    });
 }
 
 export default function LoginForm({ setToken, setIsregister }) {
-
-
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
     const [name, setName] = useState("");
     const [password_confirmation, setpassword_confirmation] = useState("");
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (name ==="" && password_confirmation === "")
-        {
+        if (name === "" && password_confirmation === "") {
             const token = LoginUser({
                 email,
                 password,
@@ -37,32 +32,30 @@ export default function LoginForm({ setToken, setIsregister }) {
                 setToken(r);
             });
         }
-        if(name != "" && password_confirmation !="")
-        {
+        if (name != "" && password_confirmation != "") {
             registerUser({
                 name,
                 email,
                 password,
                 password_confirmation,
             });
-        setName("");
-        setpassword_confirmation("");
-        } 
-       
+            setName("");
+            setpassword_confirmation("");
+        }
     };
-    
-    useEffect(() =>{
-        const switchers = [...document.querySelectorAll('.switcher')]
-        switchers.forEach(item => {
-            item.addEventListener('click', function() {
-                switchers.forEach(item => item.parentElement.classList.remove('is-active'))
-                this.parentElement.classList.add('is-active')
-                
-            })
-        })
-       
-    },[])
-  
+
+    useEffect(() => {
+        const switchers = [...document.querySelectorAll(".switcher")];
+        switchers.forEach((item) => {
+            item.addEventListener("click", function () {
+                switchers.forEach((item) =>
+                    item.parentElement.classList.remove("is-active")
+                );
+                this.parentElement.classList.add("is-active");
+            });
+        });
+    }, []);
+
     return (
         <section className="forms-section">
             <h1 className="section-title">InstISEN</h1>
@@ -72,7 +65,7 @@ export default function LoginForm({ setToken, setIsregister }) {
                         Login
                         <span className="underline"></span>
                     </button>
-                    <form className="form form-login"  onSubmit={handleSubmit}>
+                    <form className="form form-login" onSubmit={handleSubmit}>
                         <fieldset>
                             <legend>
                                 Please, enter your email and password for login.
@@ -100,10 +93,7 @@ export default function LoginForm({ setToken, setIsregister }) {
                                 />
                             </div>
                         </fieldset>
-                        <button
-                            type="submit"
-                            className="btn-login"
-                        >
+                        <button type="submit" className="btn-login">
                             Login
                         </button>
                     </form>
@@ -113,20 +103,25 @@ export default function LoginForm({ setToken, setIsregister }) {
                         Sign Up
                         <span className="underline"></span>
                     </button>
-                    <form className="form form-signup"  onSubmit={handleSubmit}>
+                    <form className="form form-signup" onSubmit={handleSubmit}>
                         <fieldset>
                             <legend>
                                 Please, enter your email, password and password
                                 confirmation for sign up.
                             </legend>
                             <div className="input-block">
+                                <label htmlFor="signup-name">Pseudo</label>
+                                <input
+                                    id="signup-password-confirmation"
+                                    type="text"
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
+                                />
                                 <label htmlFor="signup-email">E-mail</label>
                                 <input
                                     id="signup-email"
                                     type="email"
-                                    onChange={(e) =>
-                                        setEmail(e.target.value)
-                                    }
+                                    onChange={(e) => setEmail(e.target.value)}
                                     required
                                 />
                             </div>
@@ -142,27 +137,14 @@ export default function LoginForm({ setToken, setIsregister }) {
                                     }
                                     required
                                 />
-                                 <label htmlFor="signup-password-confirmation">
+                                <label htmlFor="signup-password-confirmation">
                                     Password Confirmation
                                 </label>
-                                 <input
+                                <input
                                     id="signup-password-confirmation"
                                     type="password"
-                                    
                                     onChange={(e) =>
                                         setpassword_confirmation(e.target.value)
-                                    }
-                                    required
-                                />
-                                <label htmlFor="signup-name">
-                                    name
-                                </label>
-                                 <input
-                                    id="signup-password-confirmation"
-                                    type="text"
-                                    
-                                    onChange={(e) =>
-                                        setName(e.target.value)
                                     }
                                     required
                                 />
