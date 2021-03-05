@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 
-export default function ImageDisplay({src, legend,note,token,idImage,preview}) {
+export default function ImageDisplay({src, legend,note,token,idImage,tagsList,preview}) {
 
     const [noteImage, setNote] = useState(note);
     const [noteForm, SetnoteForm] = useState();
@@ -15,7 +15,6 @@ export default function ImageDisplay({src, legend,note,token,idImage,preview}) {
             Authorization: token,
         }
     }
-    let Ntes = note
     const handleSubmit = async e => {
         e.preventDefault();
         const data = new FormData();
@@ -39,6 +38,7 @@ export default function ImageDisplay({src, legend,note,token,idImage,preview}) {
                         <p>Legend {legend}</p>
                         <img src={src}  width="300" height="300"/>
                         <p> Note : {noteImage}</p>
+                        <p>Tags = {tagsList}</p>
                     </div>
                 </div>
             </div>
@@ -53,6 +53,7 @@ export default function ImageDisplay({src, legend,note,token,idImage,preview}) {
                         <p>Legend {legend}</p>
                         <img src={src}  width="300" height="300"/>
                         <p> Note : {noteImage}</p>
+                        <p>Tags = {tagsList}</p>
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="text"

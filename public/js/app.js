@@ -2291,6 +2291,7 @@ function ImageDisplay(_ref) {
       note = _ref.note,
       token = _ref.token,
       idImage = _ref.idImage,
+      tagsList = _ref.tagsList,
       preview = _ref.preview;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(note),
@@ -2308,7 +2309,6 @@ function ImageDisplay(_ref) {
       Authorization: token
     }
   };
-  var Ntes = note;
 
   var handleSubmit = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(e) {
@@ -2375,6 +2375,8 @@ function ImageDisplay(_ref) {
             height: "300"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
             children: [" Note : ", noteImage]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+            children: ["Tags = ", tagsList]
           })]
         })
       })
@@ -2394,6 +2396,8 @@ function ImageDisplay(_ref) {
             height: "300"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
             children: [" Note : ", noteImage]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+            children: ["Tags = ", tagsList]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
             onSubmit: handleSubmit,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
@@ -2855,6 +2859,7 @@ function MainPage(AuthToken) {
           note: image.note,
           token: BearerToken,
           idImage: image.id,
+          tagsList: "TAGS à FINIR",
           preview: "0"
         }, image.id);
       })
@@ -3345,8 +3350,8 @@ function UploadImageForm(AuthToken) {
         legend: Legend,
         note: 5,
         token: BearerToken,
-        preview: "1",
-        tagslist: Tags
+        tagsList: Tags,
+        preview: "1"
       })
     });
   }

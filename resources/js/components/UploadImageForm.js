@@ -74,7 +74,7 @@ export default  function UploadImageForm(AuthToken)
         $imagePreview = (
         <div className="image-container" >
 
-            <ImageDisplay src={path} legend={Legend} note={5} token={BearerToken} preview={"1"} tagslist={Tags}/>
+            <ImageDisplay src={path} legend={Legend} note={5} token={BearerToken}  tagsList={Tags} preview={"1"}/>
         </div>);
     }
     return (
