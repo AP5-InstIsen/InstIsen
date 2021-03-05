@@ -41,6 +41,7 @@ Route::middleware('isAuthenticated')->group(function () {
     Route::post('/get_image_info_by_id', [ImageController::class, 'getImageInfoById']);
     Route::post('/get_images_list', [ImageController::class, 'getImagesInfo']);
     Route::post('/get_wall', [ImageController::class, 'getWall']);
+    Route::post('/search_by_tag', [ImageController::class, 'searchByTag']);
     Route::post('/create_user_note', [UserNoteController::class, 'store']);
     Route::post('/create_user_comment', [UserCommentController::class, 'store']);
 });
