@@ -34,7 +34,7 @@ export default function MainPage(AuthToken)
             <div className={classNames}>
                 {
                     ImageList.images_list.map(image => (
-                    <ImageDisplay src={image.path} key={image.id} legend={image.legend} note={image.note} token={BearerToken} idImage={image.id}/>
+                    <ImageDisplay src={image.path} key={image.id} legend={image.legend} note={image.note} token={BearerToken} idImage={image.id} preview={"0"}/>
                 ))}
             </div>
         </div>

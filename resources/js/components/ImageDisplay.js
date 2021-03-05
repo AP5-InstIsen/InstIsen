@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 
-export default function ImageDisplay({src, legend,note,token,idImage}) {
+export default function ImageDisplay({src, legend,note,token,idImage,preview}) {
 
     const [noteImage, setNote] = useState(note);
     const [noteForm, SetnoteForm] = useState();
@@ -30,25 +30,43 @@ export default function ImageDisplay({src, legend,note,token,idImage}) {
             })
     }
 
-    return(
-        <div className="grid-container fluid">
-            <div className="grid-x grid-margin-x">
-                <div className="cell-2">
-                    <p>Legend {legend}</p>
-                    <img src={src}  width="300" height="300"/>
-                    <p> Note : {noteImage}</p>
-                     <form onSubmit={handleSubmit}>
-                         <input
-                             type="text"
-                             name="note"
-                             placeholder="5"
-                             onChange={e => SetnoteForm(e.target.value)}
-                         />
-                         <input type="submit" value="voter"/>
-                    </form>
+    if (preview ==="1")
+    {
+        return(
+            <div className="grid-container fluid">
+                <div className="grid-x grid-margin-x">
+                    <div className="cell-2">
+                        <p>Legend {legend}</p>
+                        <img src={src}  width="300" height="300"/>
+                        <p> Note : {noteImage}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
+    else if (preview ==="0")
+    {
+        return(
+            <div className="grid-container fluid">
+                <div className="grid-x grid-margin-x">
+                    <div className="cell-2">
+                        <p>Legend {legend}</p>
+                        <img src={src}  width="300" height="300"/>
+                        <p> Note : {noteImage}</p>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="note"
+                                placeholder="5"
+                                onChange={e => SetnoteForm(e.target.value)}
+                            />
+                            <input type="submit" value="voter"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
 
 }

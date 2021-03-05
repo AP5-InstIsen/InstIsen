@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react';
 import axios from 'axios';
+import ImageDisplay from './ImageDisplay'
 
 async function uploadImage(data,header)
 {
@@ -65,7 +66,11 @@ export default  function UploadImageForm(AuthToken)
     }
     let $imagePreview = (<div className="previewText image-container">Please select an Image file for Display</div>);
     if (path) {
-        $imagePreview = (<div className="image-container" ><img src={path} alt="icon" width="400" /> </div>);
+        $imagePreview = (
+        <div className="image-container" >
+
+            <ImageDisplay src={path} legend={Legend} note={5} token={BearerToken} preview={"1"}/>
+        </div>);
     }
     return (
         <div className="grid-container">
