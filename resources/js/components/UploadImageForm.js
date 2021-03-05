@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react';
 import axios from 'axios';
+import ImageDisplay from './ImageDisplay'
 
 async function uploadImage(data,header)
 {
@@ -23,8 +24,7 @@ export default  function UploadImageForm(AuthToken)
     const [Legend, setLegend] = useState();
     const [BroadcastList,SetBroadcastList] = useState([]);
     const [BroadcastListName,setBroadcastListName] = useState();
-    let idBroadcastList;
-
+    const [Tags, setTags] = useState();
    useEffect(() =>{
        const tmp = axios.post('/api/get_broadcast_lists', null, config)
        tmp.then( resp =>{
@@ -47,6 +47,7 @@ export default  function UploadImageForm(AuthToken)
 
         data.append('image', ImageSelected);
         data.append('legend',Legend);
+        data.appen('tags',Tags)
         await uploadImage(data,config);
     }
     const legendChangedHandler = async e =>{
@@ -63,9 +64,18 @@ export default  function UploadImageForm(AuthToken)
     const userListChangeHandler = e => {
     setBroadcastListName(e.target.value)
     }
+
+    const tagsChangedHandler = e => {
+        setTags(e.target.value)
+    }
+
     let $imagePreview = (<div className="previewText image-container">Please select an Image file for Display</div>);
     if (path) {
-        $imagePreview = (<div className="image-container" ><img src={path} alt="icon" width="400" /> </div>);
+        $imagePreview = (
+        <div className="image-container" >
+
+            <ImageDisplay src={path} legend={Legend} note={5} token={BearerToken}  tagsList={Tags} preview={"1"}/>
+        </div>);
     }
     return (
         <div className="grid-container">
@@ -88,6 +98,9 @@ export default  function UploadImageForm(AuthToken)
                                 )}
                             </datalist>
                             <p className="help-text" >tu n'as pas encore crée de liste de diffusion ? clique <a  >ici</a></p>
+                        </label>
+                        <label> tags de la photo
+                            <input type="text" onChange={tagsChangedHandler} required/>
                         </label>
                         <input type="submit" value="enregistrer"/>
                     </div>
