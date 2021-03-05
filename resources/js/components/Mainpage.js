@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import ImageDisplay from "./ImageDisplay";
 
 
 
@@ -32,8 +32,9 @@ export default function MainPage(AuthToken)
                 <h1>Recommandations</h1>
             </header>
             <div className={classNames}>
-                {ImageList.images_list.map(image => (
-                    <img src={image.path} key={image.id}/>
+                {
+                    ImageList.images_list.map(image => (
+                    <ImageDisplay src={image.path} key={image.id} legend={image.legend} note={image.note} token={BearerToken} idImage={image.id}/>
                 ))}
             </div>
         </div>
