@@ -1,12 +1,13 @@
 import React from "react";
-class Profile extends React.Component {
-    render() {
+import DiffusionListForm from "./diffusionListForm"
+
+export default function Profile(AuthToken) {
         return (
             <div>
-                <h2>Profile</h2>
+                <DiffusionListForm AuthToken={AuthToken.AuthToken}/>
             </div>
         );
     }
-}
 
-export default Profile;
+
+
