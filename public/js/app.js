@@ -3243,7 +3243,11 @@ function UploadImageForm(AuthToken) {
       BroadcastListName = _useState10[0],
       setBroadcastListName = _useState10[1];
 
-  var idBroadcastList;
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(),
+      _useState12 = _slicedToArray(_useState11, 2),
+      Tags = _useState12[0],
+      setTags = _useState12[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     var tmp = axios__WEBPACK_IMPORTED_MODULE_3___default().post('/api/get_broadcast_lists', null, config);
     tmp.then(function (resp) {
@@ -3271,10 +3275,11 @@ function UploadImageForm(AuthToken) {
 
               data.append('image', ImageSelected);
               data.append('legend', Legend);
-              _context.next = 7;
+              data.appen('tags', Tags);
+              _context.next = 8;
               return uploadImage(data, config);
 
-            case 7:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -3323,6 +3328,10 @@ function UploadImageForm(AuthToken) {
     setBroadcastListName(e.target.value);
   };
 
+  var tagsChangedHandler = function tagsChangedHandler(e) {
+    setTags(e.target.value);
+  };
+
   var $imagePreview = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: "previewText image-container",
     children: "Please select an Image file for Display"
@@ -3336,7 +3345,8 @@ function UploadImageForm(AuthToken) {
         legend: Legend,
         note: 5,
         token: BearerToken,
-        preview: "1"
+        preview: "1",
+        tagslist: Tags
       })
     });
   }
@@ -3383,6 +3393,12 @@ function UploadImageForm(AuthToken) {
               children: ["tu n'as pas encore cr\xE9e de liste de diffusion ? clique ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
                 children: "ici"
               })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+            children: [" tags de la photo", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+              type: "text",
+              onChange: tagsChangedHandler,
+              required: true
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
             type: "submit",
