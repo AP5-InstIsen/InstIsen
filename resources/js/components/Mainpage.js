@@ -41,7 +41,7 @@ export default function MainPage(AuthToken)
                         note={image.note}
                         token={BearerToken}
                         idImage={image.id}
-                        tagsList={"TAGS à FINIR"}
+                        tagsList={image.tags}
                         preview={"0"}/>
                 ))}
             </div>

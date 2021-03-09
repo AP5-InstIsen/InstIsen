@@ -2859,7 +2859,7 @@ function MainPage(AuthToken) {
           note: image.note,
           token: BearerToken,
           idImage: image.id,
-          tagsList: "TAGS à FINIR",
+          tagsList: image.tags,
           preview: "0"
         }, image.id);
       })
@@ -3280,7 +3280,7 @@ function UploadImageForm(AuthToken) {
 
               data.append('image', ImageSelected);
               data.append('legend', Legend);
-              data.appen('tags', Tags);
+              data.append('tags', Tags);
               _context.next = 8;
               return uploadImage(data, config);
 
