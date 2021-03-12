@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import RegisterForm from "./RegisterForm";
-import MainPage from "./Mainpage";
 import LoginForm from "./LoginForm";
-import UploadImageForm from "./UploadImageForm";
 import Header from "./Header";
 
 function App() {
@@ -15,18 +13,15 @@ function App() {
             <LoginForm
                 setToken={setToken}
                 setIsregister={setIsregister}
-            ></LoginForm>
+            />
         );
     }
     if (!token && isregister === "1") {
-        return <RegisterForm setToken={setToken}></RegisterForm>;
+        return <RegisterForm setToken={setToken}/>;
     } else {
         console.log(`token Value : ${token}`);
         return (
-            <div className="container">
-                 <Header></Header>
-                <UploadImageForm token={token}></UploadImageForm>
-            </div>
+            <Header token={token}/>
         );
     }
 }

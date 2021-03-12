@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BroadcastList;
 use App\Models\Image;
+use App\Models\Tag;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -20,9 +21,10 @@ class ImageController extends Controller
                     'name' => 'string|max:255',
                     'image' => 'mimes:jpeg,png|max:15360',
                     'id_broadcast_list' => 'integer',
-                    'legend' => 'string'
+                    'legend' => 'string',
+                    'tags' => 'string'
                     ]);
-                $path = $request->image->store('images');
+                $path = $request->image->store('public');
                 $image = Image::create([
                         'path' => $path,
                         'idUser' => $user->id,
@@ -30,8 +32,18 @@ class ImageController extends Controller
                         'legend' => $request->legend,
                         'exifs' => false
                     ]);
+                $tagsInDB = array();
+                if ($request->tags != '') {
+                    foreach (explode(',', $request->tags) as $tag) {
+                        $newTag = Tag::create([
+                            'idImage' => $image->id,
+                            'name' => $tag
+                        ]);
+                        array_push($tagsInDB, $newTag);
+                    }
+                }
 
-                return response(['image' => $image, 'message' => 'image was uploaded successfully']);
+                return response(['image' => $image, 'tags' => $tagsInDB, 'message' => 'image was uploaded successfully']);
             }
         }
         return response(['message' => 'wrong file']);
@@ -61,21 +73,86 @@ class ImageController extends Controller
         return response()->file(storage_path('app/').$request->path);
     }
 
-    public function getWall(Request $request)
+    public function getBroadcastListIds($broadcast_lists)
     {
-        $user = Auth::guard('api')->user();
-        $broadcast_lists = BroadcastList::where('broadcast', 'like', '%'.$user->id.'%')->get('id')->toArray();
         $broadcast_lists_ids = array();
         foreach ($broadcast_lists as $blist) {
             array_push($broadcast_lists_ids, $blist['id']);
         }
-        $images = Image::whereIn('idBroadcastList', $broadcast_lists_ids)->get();
-
-        return response(['images_list' => $images]);
+        return $broadcast_lists_ids;
     }
-    /*public function viewUploads()
+
+    public function getTagsString($imageId)
     {
-        $images = File::all();
-        return view('view_uploads')->with('images', $images);
-    }*/
+        $tags = Tag::where("idImage", $imageId)->get();
+        $tagsString = '';
+        foreach ($tags as $tag) {
+            if ($tagsString == '') {
+                $tagsString = $tag->name;
+            } else {
+                $tagsString = $tagsString . "," . $tag->name;
+            }
+        }
+        return $tagsString;
+    }
+
+    public function getImagesList($image_list_db)
+    {
+        $images_list = array();
+        foreach ($image_list_db as $image) {
+            $tagsString = $this->getTagsString($image->id);
+            $newImage = array(
+                'id' => $image->id,
+                'path' => asset(Storage::url($image->path)),
+                'idUser' => $image->idUser,
+                'idBroadcastList' => $image->idBroadcastList,
+                'legend' => $image->legend,
+                'note' => $image->note,
+                'tags' => $tagsString,
+                'exifs' => $image->exifs,
+                'created_at' => $image->created_at,
+                'updated_at' => $image->updated_at,
+            );
+            array_push($images_list, $newImage);
+        }
+        return $images_list;
+    }
+
+    public function getImagesListByTag($images_list, $tag)
+    {
+        $images_list_joined = array();
+        foreach ($images_list as $image) {
+            $imageTags = Tag::where('idImage', $image->id)->get();
+            $isHere = false;
+            foreach ($imageTags as $imageTag) {
+                if ($imageTag->name == $tag) {
+                    $isHere = true;
+                    break;
+                }
+            }
+            if ($isHere == true) {
+                array_push($images_list_joined, $image);
+            }
+        }
+        return $images_list_joined;
+    }
+
+    public function getWall(Request $request)
+    {
+        $user = Auth::guard('api')->user();
+        $broadcast_lists_ids = $this->getBroadcastListIds(BroadcastList::where('broadcast', 'like', '%'.$user->id.'%')->get('id')->toArray());
+        $images_list = $this->getImagesList(Image::whereIn('idBroadcastList', $broadcast_lists_ids)->get());
+
+        return response(['images_list' => $images_list]);
+    }
+
+    public function searchByTag(Request $request)
+    {
+        $user = Auth::guard('api')->user();
+        $broadcast_lists_ids = $this->getBroadcastListIds(BroadcastList::where('broadcast', 'like', '%'.$user->id.'%')->get('id')->toArray());
+        $images_list_joined = $this->getImagesListByTag(Image::whereIn('idBroadcastList', $broadcast_lists_ids)->get(), $request->tag);
+        $images_list = $this->getImagesList($images_list_joined, $request->tag);
+
+        return response(['images_list' => $images_list]);
+    }
 }

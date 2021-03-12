@@ -1,83 +1,100 @@
-import React from "react";
+import React, { useState, useEffect }from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Profile from "./Profile";
 import Picture from "./Picture";
 import Favorites from "./Favorites";
 import Home from "./Home";
 import Logout from "./Logout";
+import UploadImageForm from "./UploadImageForm";
+import MainPage from "./Mainpage"
+import axios from "axios";
 
-export default function Header() {
+export default function Header(AuthToken) {
+    const [tagList,SetTagList] = useState();
+    const BearerToken = 'Bearer '+AuthToken.token;
+
+    let config = {
+        headers: {
+            Authorization: BearerToken,
+        }
+    }
+    const handleSubmit = async e => {
+        const data = new FormData();
+        data.append("tag",tagList)
+        const tmp = axios.post('/api/search_by_tag', data, config)
+        tmp.then( resp =>{
+            console.log(resp.data)
+        })
+    console.log(e.target)
+    }
+
+
     return (
         <header>
-            <nav>
-                <BrowserRouter>
-                    <div>
-                        <div
-                            class="title-bar"
-                            data-responsive-toggle="example-animated-menu"
-                            data-hide-for="medium"
-                        >
-                            <button
-                                class="menu-icon"
-                                type="button"
-                                data-toggle
-                            ></button>
-                            <div class="title-bar-title">Menu</div>
-                        </div>
-                        <div
-                            class="top-bar"
-                            id="example-animated-menu"
-                            data-animate="hinge-in-from-top spin-out"
-                        >
-                            <div class="top-bar-left">
-                                <ul class="dropdown menu" data-dropdown-menu>
-                                    <li class="menu-text">InstISEN</li>
-                                    <li>
-                                        <Link to="/home">Home</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/picture">Picture</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/favorites">Favorites</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="top-bar-middle">
-                                <ul class="dropdown menu" data-dropdown-menu>
-                                    <li>
-                                        <input
-                                            type="search"
-                                            placeholder="Search"
-                                        />
-                                    </li>
-                                    <li>
-                                        <button type="button" class="button">
-                                            Search
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="top-bar-right"></div>
-                            <ul class="dropdown menu" data-dropdown-menu>
+        <nav>
+            <BrowserRouter>
+                <div>
+                    <div
+                        className="title-bar"
+                        data-responsive-toggle="example-animated-menu"
+                        data-hide-for="medium"
+                    >
+                        <button
+                            className="menu-icon"
+                            type="button"
+                            data-toggle
+                        ></button>
+                        <div className="title-bar-title">Menu</div>
+                    </div>
+                    <div
+                        className="top-bar"
+                        id="example-animated-menu"
+                        data-animate="hinge-in-from-top spin-out"
+                    >
+                        <div className="top-bar-left">
+                            <ul className="dropdown menu" data-dropdown-menu>
+                                <li className="menu-text">InstISEN</li>
                                 <li>
-                                    <Link to="/profile">Profile</Link>
+                                    <Link to="/">Home</Link>
                                 </li>
                                 <li>
-                                    <Link to="/logout">Logout</Link>
+                                    <Link to="/picture">Picture</Link>
+                                </li>
+                                <li>
+                                    <Link to="/favorites">Favorites</Link>
                                 </li>
                             </ul>
                         </div>
+                        <div className="top-bar-middle">
+                            <ul className="dropdown menu" data-dropdown-menu>
+                            <form onSubmit={handleSubmit} >
+
+                                        <input
+                                            type="text"
+                                            placeholder="Search"
+                                            name="tag"
+                                        />
+                                        <input type="submit" value="lol" className="button" />
+                                </form>
+
+                            </ul>
+                        </div>
+                        <div className="top-bar-right"></div>
+                        <ul className="dropdown menu" data-dropdown-menu>
+                            <li>
+                                <Link to="/profile">Profile</Link>
+                            </li>
+                            <li>
+                                <Link to="/logout">Logout</Link>
+                            </li>
+                        </ul>
+                    </div>
                         <div className="main-route-place">
-                            <Route exact path="/home" component={Home} />
-                            <Route exact path="/logout" component={Logout} />
-                            <Route exact path="/profile" component={Profile} />
-                            <Route exact path="/picture" component={Picture} />
-                            <Route
-                                exact
-                                path="/favorites"
-                                component={Favorites}
-                            />
+                            <Route exact path="/logout" component={Logout}/>
+                            <Route exact path="/profile" component={() => <Profile AuthToken={AuthToken.token} />} />
+                            <Route exact path="/picture" component={() => <UploadImageForm AuthToken={AuthToken} />} />
+                            <Route exact path="/favorites" component={Favorites} />
+                            <Route exact path="/" component={() => <MainPage AuthToken={AuthToken} />} />
                         </div>
                     </div>
                 </BrowserRouter>
@@ -85,3 +102,6 @@ export default function Header() {
         </header>
     );
 }
+
+
+
