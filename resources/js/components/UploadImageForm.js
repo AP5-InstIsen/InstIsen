@@ -47,7 +47,7 @@ export default  function UploadImageForm(AuthToken)
 
         data.append('image', ImageSelected);
         data.append('legend',Legend);
-        data.appen('tags',Tags)
+        data.append('tags',Tags)
         await uploadImage(data,config);
     }
     const legendChangedHandler = async e =>{

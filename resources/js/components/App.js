@@ -13,15 +13,15 @@ function App() {
             <LoginForm
                 setToken={setToken}
                 setIsregister={setIsregister}
-            ></LoginForm>
+            />
         );
     }
     if (!token && isregister === "1") {
-        return <RegisterForm setToken={setToken}></RegisterForm>;
+        return <RegisterForm setToken={setToken}/>;
     } else {
         console.log(`token Value : ${token}`);
         return (
-            <Header token={token}></Header>
+            <Header token={token}/>
         );
     }
 }
