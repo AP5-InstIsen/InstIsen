@@ -57,7 +57,7 @@ export default function DiffusionListForm(AuthToken) {
             <form onSubmit={handleSubmit}>
                 <div className="container-center">
                     <label>
-                        <h5>Nom de la liste de diffusion</h5>
+                        <h3>Nom de la liste de diffusion</h3>
                         <input
                             type="text"
                             onChange={DiffusionListNameChangeHandler}
@@ -65,7 +65,7 @@ export default function DiffusionListForm(AuthToken) {
                         />
                     </label>
                     <label>
-                        <h5>Liste de diffusion</h5>
+                        <h3>Liste de diffusion</h3>
                         <input
                             type="email"
                             list="data"

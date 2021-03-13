@@ -65,7 +65,7 @@ export default function UploadImageForm(AuthToken) {
 
     let $imagePreview = (
         <div className="previewText image-container">
-            <h6>Please select an Image file for Display</h6>
+            <h4>Please select an Image file for Display</h4>
         </div>
     );
     if (path) {
@@ -87,7 +87,7 @@ export default function UploadImageForm(AuthToken) {
             <form onSubmit={handleSubmit}>
                 <div className="container-center">
                     <label>
-                        <h5>Image à envoyer</h5>
+                        <h3>Image à envoyer</h3>
                         <input
                             type="hidden"
                             name="MAX_FILE_SIZE"
@@ -102,7 +102,7 @@ export default function UploadImageForm(AuthToken) {
                     </label>
                     <label>
                         {" "}
-                        <h5>Légende de l'image</h5>
+                        <h3>Légende de l'image</h3>
                         <input
                             type="text"
                             onChange={legendChangedHandler}
@@ -110,7 +110,7 @@ export default function UploadImageForm(AuthToken) {
                         />
                     </label>
                     <label>
-                        <h5>Liste de diffusion</h5>
+                        <h3>Liste de diffusion</h3>
                         <input
                             type="text"
                             list="data"
@@ -122,16 +122,14 @@ export default function UploadImageForm(AuthToken) {
                                 <option key={item.id} value={item.name} />
                             ))}
                         </datalist>
-                        <p className="help-text">
-                            <h6>
-                                Tu n'as pas encore créé de liste de diffusion ?
-                                Cliquez <a>ici</a>
-                            </h6>
-                        </p>
+                        <h4>
+                            Tu n'as pas encore créé de liste de diffusion ?
+                            Cliquez <a>ici</a>
+                        </h4>
                     </label>
                     <label>
                         {" "}
-                        <h5>Tags</h5>
+                        <h3>Tags</h3>
                         <input
                             type="text"
                             onChange={tagsChangedHandler}
