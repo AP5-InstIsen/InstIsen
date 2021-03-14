@@ -16,11 +16,12 @@ import Logout from "./Logout";
 import UploadImageForm from "./UploadImageForm";
 import MainPage from "./Mainpage";
 import axios from "axios";
+import LoginForm from "./LoginForm";
 
-export default function Header(AuthToken) {
+export default function Header({ setToken,AuthToken }) {
     const [tagList, SetTagList] = useState();
     const BearerToken = "Bearer " + AuthToken.token;
-
+console.log(`BearerToken from Header : ${AuthToken}`)
     let config = {
         headers: {
             Authorization: BearerToken,
@@ -55,7 +56,7 @@ export default function Header(AuthToken) {
                                         InstISEN
                                     </li>
                                     <li>
-                                        <Link to="/">
+                                        <Link to="/home">
                                             <FontAwesomeIcon
                                                 icon={faHome}
                                                 size="lg"
@@ -123,12 +124,14 @@ export default function Header(AuthToken) {
                             </ul>
                         </div>
                         <div className="main-route-place">
-                            <Route exact path="/logout" component={Logout} />
+                            <Route exact path="/logout"  component={() => (
+                                <Logout setToken={setToken}  AuthToken={AuthToken} />
+                            )} />
                             <Route
                                 exact
                                 path="/profile"
                                 component={() => (
-                                    <Profile AuthToken={AuthToken.token} />
+                                    <Profile AuthToken={AuthToken} />
                                 )}
                             />
                             <Route
@@ -145,9 +148,25 @@ export default function Header(AuthToken) {
                             />
                             <Route
                                 exact
+                                path="/home"
+                                component={() => (
+                                    <MainPage AuthToken={AuthToken} />
+                                )}
+                            />
+                            <Route
+                                exact
                                 path="/"
                                 component={() => (
                                     <MainPage AuthToken={AuthToken} />
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/login"
+                                component={() => (
+                                    <LoginForm
+                                        setToken={setToken}
+                                    />
                                 )}
                             />
                         </div>

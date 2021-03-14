@@ -14,7 +14,7 @@ async function registerUser(userInfo) {
     });
 }
 
-export default function LoginForm({ setToken, setIsregister }) {
+export default function LoginForm({ setToken }) {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 

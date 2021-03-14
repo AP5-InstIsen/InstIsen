@@ -3,14 +3,9 @@ import ImageDisplay from "./ImageDisplay";
 
 export default function MainPage(AuthToken) {
     const [ImageList, setImageList] = useState({ images_list: [] });
-
-    console.log(`ImageList ${ImageList}`);
-    {
-        useEffect(GetImageIdList, []);
-    }
-
-    const BearerToken = "Bearer " + AuthToken.AuthToken.token;
-
+    useEffect(GetImageIdList, []);
+    const BearerToken = "Bearer " + AuthToken.AuthToken;
+ console.log(`BearerToken from main : ${AuthToken.AuthToken}`)
     function GetImageIdList() {
         const data = new FormData();
         let config = {
