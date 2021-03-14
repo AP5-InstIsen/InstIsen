@@ -161,8 +161,6 @@ console.log(`BearerToken from Header : ${AuthToken}`)
                                 )}
                             />
 
-                                )}
-                            />
                         </div>
                     </div>
                 </BrowserRouter>

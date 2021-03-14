@@ -12169,7 +12169,7 @@ function Header(_ref) {
                   AuthToken: AuthToken
                 });
               }
-            }), ")} />"]
+            })]
           })]
         })
       })
@@ -12810,6 +12810,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function MainPage(AuthToken) {
+  console.log(AuthToken);
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     images_list: []
   }),
@@ -13106,6 +13108,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 function uploadImage(_x, _x2) {
   return _uploadImage.apply(this, arguments);
 }
@@ -13131,7 +13134,8 @@ function _uploadImage() {
 }
 
 function UploadImageForm(AuthToken) {
-  var BearerToken = "Bearer " + AuthToken.AuthToken.token;
+  console.log(AuthToken);
+  var BearerToken = "Bearer " + AuthToken.AuthToken;
   var config = {
     headers: {
       Authorization: BearerToken
@@ -13317,10 +13321,6 @@ function UploadImageForm(AuthToken) {
                 value: item.name
               }, item.id);
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h4", {
-            children: ["Tu n'as pas encore cr\xE9\xE9 de liste de diffusion ? Cliquez ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-              children: "ici"
-            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
           children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {

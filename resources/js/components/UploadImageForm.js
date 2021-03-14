@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ImageDisplay from "./ImageDisplay";
+import { Redirect} from "react-router-dom";
 
 async function uploadImage(data, header) {
     return axios.post("/api/upload", data, header).then((res) => {
@@ -9,7 +10,8 @@ async function uploadImage(data, header) {
 }
 
 export default function UploadImageForm(AuthToken) {
-    const BearerToken = "Bearer " + AuthToken.AuthToken.token;
+    console.log(AuthToken)
+    const BearerToken = "Bearer " + AuthToken.AuthToken;
     let config = {
         headers: {
             Authorization: BearerToken,
@@ -28,7 +30,6 @@ export default function UploadImageForm(AuthToken) {
             SetBroadcastList(resp.data.broadcast_lists);
         });
     }, []);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData();
@@ -123,10 +124,7 @@ export default function UploadImageForm(AuthToken) {
                                 <option key={item.id} value={item.name} />
                             ))}
                         </datalist>
-                        <h4>
-                            Tu n'as pas encore créé de liste de diffusion ?
-                            Cliquez <a>ici</a>
-                        </h4>
+                        
                     </label>
                     <label>
                         {" "}

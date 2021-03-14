@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ImageDisplay from "./ImageDisplay";
 
 export default function MainPage(AuthToken) {
+    console.log(AuthToken)
     const [ImageList, setImageList] = useState({ images_list: [] });
     useEffect(GetImageIdList, []);
     const BearerToken = "Bearer " + AuthToken.AuthToken;
