@@ -292,9 +292,7 @@ body {
 
 .center_block{
 	margin-top: 10px;
-	display: block;
-	margin : auto;
-	justify-content: left;
+	display: grid;
 }
 .container-center{
 	margin-top: 65px;
