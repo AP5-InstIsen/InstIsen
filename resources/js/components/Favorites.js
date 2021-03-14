@@ -3,7 +3,8 @@ class Favorites extends React.Component {
     render() {
         return (
             <div>
-                <h2>Favorites</h2>
+                <h3>Favorites</h3>
+                <h4> EN MAINTENANCE !!! EN COURS DE RESOLUTION</h4>
             </div>
         );
     }
