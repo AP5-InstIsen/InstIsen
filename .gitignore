@@ -6,8 +6,12 @@
 .env
 .env.backup
 .phpunit.result.cache
+.rnd
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+package-lock.json
+.idea
+/public/js

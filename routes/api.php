@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\BroadcastListController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UserCommentController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserNoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +22,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::middleware('isAuthenticated')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/upload', [ImageController::class, 'store']);
+    Route::post('/create_broadcast_list', [BroadcastListController::class, 'store']);
+    Route::post('/get_users_list', [UserController::class, 'getUsersList']);
+    Route::post('/get_broadcast_lists', [BroadcastListController::class, 'getBroadcastLists']);
+    Route::post('/get_broadcast_list_by_id', [BroadcastListController::class, 'getBroadcastListById']);
+    Route::post('/get_broadcast_list_by_user_id', [BroadcastListController::class, 'getBroadcastListByUserId']);
+    Route::post('/get_image_by_id', [ImageController::class, 'getImageById']);
+    Route::post('/get_image_by_path', [ImageController::class, 'getImageByPath']);
+    Route::post('/get_image_info_by_id', [ImageController::class, 'getImageInfoById']);
+    Route::post('/get_images_list', [ImageController::class, 'getImagesInfo']);
+    Route::post('/get_wall', [ImageController::class, 'getWall']);
+    Route::post('/search_by_tag', [ImageController::class, 'searchByTag']);
+    Route::post('/create_user_note', [UserNoteController::class, 'store']);
+    Route::post('/create_user_comment', [UserCommentController::class, 'store']);
 });
