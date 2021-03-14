@@ -93,12 +93,13 @@ export default function UploadImageForm(AuthToken) {
                             name="MAX_FILE_SIZE"
                             value="15000000"
                         />
-                        <input
-                            type="file"
-                            onChange={fileChangedHandler}
-                            className="center"
-                            required
-                        />
+                        <div className="container-centerblock">
+                            <input
+                                type="file"
+                                onChange={fileChangedHandler}
+                                required
+                            />
+                        </div>
                     </label>
                     <label>
                         {" "}

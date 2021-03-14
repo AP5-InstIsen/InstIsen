@@ -35,7 +35,7 @@ export default function ImageDisplay({
             <div className="grid-container fluid">
                 <div className="container-center">
                     <div className="grid-x grid-margin-x">
-                        <div className="cell-2">
+                        <div className="center">
                             <h4>Legend {legend}</h4>
                             <img src={src} width="300" height="300" />
                             <h4> Note : {noteImage}</h4>
@@ -49,11 +49,11 @@ export default function ImageDisplay({
         return (
             <div className="grid-container fluid">
                 <div className="grid-x grid-margin-x">
-                    <div className="cell-2">
-                        <p>Legend {legend}</p>
+                    <div className="center">
+                        <h4>Legend {legend}</h4>
                         <img src={src} width="300" height="300" />
-                        <p> Note : {noteImage}</p>
-                        <p>Tags = {tagsList}</p>
+                        <h4> Note : {noteImage}</h4>
+                        <h4>Tags = {tagsList}</h4>
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="text"
