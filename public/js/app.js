@@ -12169,15 +12169,7 @@ function Header(_ref) {
                   AuthToken: AuthToken
                 });
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.default, {
-              exact: true,
-              path: "/login",
-              component: function component() {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_LoginForm__WEBPACK_IMPORTED_MODULE_11__.default, {
-                  setToken: setToken
-                });
-              }
-            })]
+            }), ")} />"]
           })]
         })
       })
@@ -12776,14 +12768,12 @@ function Logout(_ref) {
       Authorization: BearerToken
     }
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().post("./api/logout", data, config).then(function (resp) {
-      setToken();
-    });
-  }, []);
+  axios__WEBPACK_IMPORTED_MODULE_2___default().post("./api/logout", data, config).then(function (resp) {
+    setToken();
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.default, {
     push: true,
-    to: "/login"
+    to: "/"
   });
 }
 

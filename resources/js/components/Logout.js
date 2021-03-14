@@ -13,15 +13,14 @@ export default function Logout({ setToken, AuthToken }) {
             Authorization: BearerToken,
         },
     };
-    useEffect(() => {
+
         axios
             .post("./api/logout", data, config)
             .then((resp) => {
                 setToken()
             });
-    },[]);
 
-    return (<Redirect push to ="/login"/>)
+    return (<Redirect push to ="/"/>)
 
 
 }

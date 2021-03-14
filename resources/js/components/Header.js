@@ -160,13 +160,7 @@ console.log(`BearerToken from Header : ${AuthToken}`)
                                     <MainPage AuthToken={AuthToken} />
                                 )}
                             />
-                            <Route
-                                exact
-                                path="/login"
-                                component={() => (
-                                    <LoginForm
-                                        setToken={setToken}
-                                    />
+
                                 )}
                             />
                         </div>
