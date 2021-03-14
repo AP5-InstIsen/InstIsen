@@ -6,22 +6,18 @@ import Header from "./Header";
 
 function App() {
     const [token, setToken] = useState();
-    const [isregister, setIsregister] = useState();
 
-    if (!token && !isregister) {
+    if (!token) {
         return (
             <LoginForm
                 setToken={setToken}
-                setIsregister={setIsregister}
             />
         );
     }
-    if (!token && isregister === "1") {
-        return <RegisterForm setToken={setToken}/>;
-    } else {
+    else {
         console.log(`token Value : ${token}`);
         return (
-            <Header token={token}/>
+            <Header AuthToken={token} setToken={setToken}/>
         );
     }
 }
