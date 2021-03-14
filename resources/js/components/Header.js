@@ -32,23 +32,7 @@ export default function Header(AuthToken) {
             <nav>
                 <BrowserRouter>
                     <div>
-                        <div
-                            className="title-bar"
-                            data-responsive-toggle="example-animated-menu"
-                            data-hide-for="medium"
-                        >
-                            <button
-                                className="menu-icon"
-                                type="button"
-                                data-toggle
-                            ></button>
-                            <div className="title-bar-title">Menu</div>
-                        </div>
-                        <div
-                            className="top-bar"
-                            id="example-animated-menu"
-                            data-animate="hinge-in-from-top spin-out"
-                        >
+                        <div className="top-bar">
                             <div className="top-bar-left">
                                 <ul
                                     className="dropdown menu"
