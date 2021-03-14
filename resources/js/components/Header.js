@@ -1,5 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faHome,
+    faImages,
+    faStar,
+    faUsers,
+    faSignOutAlt,
+    faCameraRetro,
+} from "@fortawesome/free-solid-svg-icons";
 import Profile from "./Profile";
 import Favorites from "./Favorites";
 import Home from "./Home";
@@ -38,15 +47,39 @@ export default function Header(AuthToken) {
                                     className="dropdown menu"
                                     data-dropdown-menu
                                 >
-                                    <li className="menu-text">InstISEN</li>
-                                    <li>
-                                        <Link to="/">Home</Link>
+                                    <li className="menu-text">
+                                        <FontAwesomeIcon
+                                            icon={faCameraRetro}
+                                            size="lg"
+                                        />{" "}
+                                        InstISEN
                                     </li>
                                     <li>
-                                        <Link to="/picture">Picture</Link>
+                                        <Link to="/">
+                                            <FontAwesomeIcon
+                                                icon={faHome}
+                                                size="lg"
+                                            />{" "}
+                                            Home
+                                        </Link>
                                     </li>
                                     <li>
-                                        <Link to="/favorites">Favorites</Link>
+                                        <Link to="/picture">
+                                            <FontAwesomeIcon
+                                                icon={faImages}
+                                                size="lg"
+                                            />{" "}
+                                            AddPictures
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/favorites">
+                                            <FontAwesomeIcon
+                                                icon={faStar}
+                                                size="lg"
+                                            />{" "}
+                                            Favorites
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -61,21 +94,31 @@ export default function Header(AuthToken) {
                                             placeholder="Search"
                                             name="tag"
                                         />
-                                        <input
+                                        {/* <input
                                             type="submit"
                                             value="lol"
                                             className="button"
-                                        />
+                                        /> */}
                                     </form>
                                 </ul>
                             </div>
                             <div className="top-bar-right"></div>
                             <ul className="dropdown menu" data-dropdown-menu>
                                 <li>
-                                    <Link to="/profile">Profile</Link>
+                                    <Link to="/profile">
+                                        <FontAwesomeIcon
+                                            icon={faUsers}
+                                            size="lg"
+                                        />
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link to="/logout">Logout</Link>
+                                    <Link to="/logout">
+                                        <FontAwesomeIcon
+                                            icon={faSignOutAlt}
+                                            size="lg"
+                                        />
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
