@@ -33,14 +33,12 @@ export default function ImageDisplay({
     if (preview === "1") {
         return (
             <div className="grid-container fluid">
-                <div className="container-center">
-                    <div className="grid-x grid-margin-x">
-                        <div className="center">
-                            <h4>Legend {legend}</h4>
-                            <img src={src} width="300" height="300" />
-                            <h4> Note : {noteImage}</h4>
-                            <h4>Tags = {tagsList}</h4>
-                        </div>
+                <div className="grid-x grid-margin-x">
+                    <div className="center">
+                        <h4>Legend {legend}</h4>
+                        <img src={src} width="300" height="300" />
+                        <h4> Note : {noteImage}</h4>
+                        <h4>Tags = {tagsList}</h4>
                     </div>
                 </div>
             </div>
@@ -49,7 +47,7 @@ export default function ImageDisplay({
         return (
             <div className="grid-container fluid">
                 <div className="grid-x grid-margin-x">
-                    <div className="center">
+                    <div className="center_block">
                         <h4>Legend {legend}</h4>
                         <img src={src} width="300" height="300" />
                         <h4> Note : {noteImage}</h4>
@@ -61,7 +59,11 @@ export default function ImageDisplay({
                                 placeholder="5"
                                 onChange={(e) => SetnoteForm(e.target.value)}
                             />
-                            <input type="submit" value="voter" />
+                            <input
+                                className="center"
+                                type="submit"
+                                value="voter"
+                            />
                         </form>
                     </div>
                 </div>

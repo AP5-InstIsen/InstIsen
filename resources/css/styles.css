@@ -285,10 +285,17 @@ body {
 
 
 .center{
+	margin-top: 10px;
 	display: block;
 	margin : auto;
 }
 
+.center_block{
+	margin-top: 10px;
+	display: block;
+	margin : auto;
+	justify-content: left;
+}
 .container-center{
 	margin-top: 65px;
 	border: #394368;
